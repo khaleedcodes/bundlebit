@@ -1,0 +1,23 @@
+:root {
+  --main-animation-duration: 0.3s;
+}
+
+.card__overlay {
+  transition: all var(--main-animation-duration);
+  top: 100%;
+  opacity: 0;
+}
+.card__overlay-text {
+  position: absolute;
+  top: 100%;
+  transition: all calc(var(--main-animation-duration) / 1.1);
+  transition-delay: calc(var(--main-animation-duration) / 4);
+}
+.card__overlay.card__overlay--active {
+  top: 0%;
+  opacity: 1;
+}
+.card__overlay-text.card__overlay--active {
+  top: 50%;
+  transform: translateY(-50%);
+}
