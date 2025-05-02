@@ -1,1 +1,40 @@
-./**/node_modules
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Node modules, build directories, and cache
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env
+.npm
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Coverage
+coverage/
+
+# Local Netlify folder
+.netlify
+
+# Package lock files (optional)
+# package-lock.json
+# yarn.lock
+
+# Git folder (precautionary, not really needed)
+.git
