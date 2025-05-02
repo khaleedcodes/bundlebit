@@ -10,7 +10,7 @@ function UsersSection() {
       </div>
       <UserCardList />
       <Link
-        to="/signup"
+        to="/b/signup"
         className="flex transition-all duration-300 text-white p-4 text-lg pl-4 pr-4 rounded-full font-bold bg-third-blue hover:bg-second-blue w-[220px] items-center justify-center"
       >
         Get started for free

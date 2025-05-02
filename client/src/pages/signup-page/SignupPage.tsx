@@ -7,7 +7,7 @@ function SignupPage() {
       <div className="fixed left-0 top-0 p-4">
         <WordMark />
       </div>
-      <div className="max-w-screen-2xl w-full h-full flex text-white">
+      <div className="w-full h-full flex text-white">
         <div className="w-full min-h-lvh flex items-center justify-center">
           <SignupForm />
         </div>

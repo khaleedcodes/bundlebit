@@ -32,7 +32,7 @@ function Nairaupdatesng() {
           })}
         </div>
         <Link
-          to="/signup"
+          to="/b/signup"
           className="transition-all duration-300 text-white p-2 pl-4 pr-4 rounded-2xl bg-third-blue hover:bg-second-blue mt-auto"
         >
           Create your bundle for free

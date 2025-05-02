@@ -1,29 +1,38 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { PropagateLoader } from "react-spinners";
+
 function SignupForm() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const navigate = useNavigate();
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    axios
-      // .post("http://localhost:3001/signup", {
-      // .post("https://bundleup-server.onrender.com/signup", {
-      .post("https://bundleup-fullstack.onrender.com/signup", {
-        email,
-        username,
-        password,
-      })
-      .then((result) => {
-        console.log(result);
-        navigate("/login");
-      })
-      .catch((err) => {
-        console.log(err);
+    setLoading((prevLoading) => !prevLoading);
+    setIsButtonDisabled((prevIsButtonDisabled) => !prevIsButtonDisabled);
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, username, password }),
       });
-    console.log("submitted");
+      const data = await res.json();
+      if (res.ok) {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userID", data.user.id);
+        navigate("/b/dashboard");
+      }
+      console.log(data.message);
+      setMessage(data.message);
+      setLoading((prevLoading) => !prevLoading);
+      setIsButtonDisabled((prevIsButtonDisabled) => !prevIsButtonDisabled);
+    } catch (err) {
+      console.error(err);
+    }
   }
   return (
     <>
@@ -71,16 +80,29 @@ function SignupForm() {
           value={password}
           required
         />
+        {message && <div className="text-third-blue">{message}</div>}
         <button
+          disabled={isButtonDisabled}
           type="submit"
-          className="bg-third-blue hover:bg-second-blue transition-all duration-150 p-3 text-white font-bold rounded-md w-full"
+          style={{
+            cursor: isButtonDisabled ? "not-allowed" : "pointer",
+          }}
+          className={`bg-third-blue h-11 disabled:bg-second-blue hover:bg-second-blue transition-all duration-150 p-3 text-white font-bold rounded-md w-full`}
         >
-          Create account
+          {loading ? (
+            <div className="h-full flex items-center justify-center pb-2">
+              <PropagateLoader size={10} color="#fff" />
+            </div>
+          ) : (
+            <p className="h-full flex items-center justify-center">
+              create account
+            </p>
+          )}
         </button>
         <div className="flex gap-4">
           <p>
             Already Have an Account?{" "}
-            <a href="/login" className="font-bold text-third-blue">
+            <a href="/b/login" className="font-bold text-third-blue">
               Log In
             </a>
           </p>
