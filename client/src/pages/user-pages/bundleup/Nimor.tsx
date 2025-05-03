@@ -5,7 +5,7 @@ import { UserLinkType } from "../../../types/types";
 import { Link } from "react-router-dom";
 const userLinkList: UserLinkType[] = [
   {
-    link: "https://bundleup.us/",
+    link: "https://bundleup.netlify.app/",
     linkName: "Website",
   },
   {
