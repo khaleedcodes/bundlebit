@@ -13,7 +13,8 @@ import SignupPage from "./pages/signup-page/SignupPage";
 // import Nimor from "./pages/user-pages/nimor/Nimor";
 // import Bundleup from "./pages/user-pages/bundleup/Nimor";
 import "./styles/card-animation.css";
-import Dashboard from "./pages/dashboard-page/Dashboard";
+import DashboardPage from "./pages/dashboard-page/DashboardPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +36,11 @@ const router = createBrowserRouter([
   },
   {
     path: "b/dashboard",
-    element: <Dashboard />,
+    element: (
+      <ProtectedRoute>
+        <DashboardPage />
+      </ProtectedRoute>
+    ),
   },
 
   // {

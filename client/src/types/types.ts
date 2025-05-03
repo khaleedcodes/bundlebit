@@ -41,7 +41,21 @@ type UserCardType = {
   bundleLink: string;
   bundleName: string;
 };
+type TabType = "Dashboard" | "Blog";
+type SideBarProps = {
+  switchTab: (tabName: TabType) => void;
+};
+type SideBarLinkListProps = SideBarProps;
+type SideBarLinkType = {
+  tabName: TabType;
+};
+type SideBarLinkProps = SideBarProps & SideBarLinkType;
 export type {
+  TabType,
+  SideBarProps,
+  SideBarLinkListProps,
+  SideBarLinkType,
+  SideBarLinkProps,
   HamBurgerProps,
   MobileNavBarProps,
   LinkType,
