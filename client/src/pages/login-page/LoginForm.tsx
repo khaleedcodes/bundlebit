@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { PropagateLoader } from "react-spinners";
@@ -10,6 +10,14 @@ function LoginForm() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [isPasswordShown, setIsPasswordShown] = useState(false);
+  const [isPasswordFocus, setIsPasswordFocus] = useState(false);
+
+  const identifierInputRef = useRef<HTMLInputElement>(null);
+  const passwordInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    identifierInputRef.current?.focus();
+  }, []);
   const navigate = useNavigate();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -32,6 +40,8 @@ function LoginForm() {
       setLoading(false);
     } catch (error) {
       console.error(error);
+      setMessage("Something went wrong. Please try again.");
+      setLoading(false);
     }
   }
   return (
@@ -48,7 +58,8 @@ function LoginForm() {
         </h1>
         {/*Identifier Field*/}
         <input
-          className="bg-[#040F0F] w-full min-h-11 rounded-md outline-none border-none pl-10"
+          ref={identifierInputRef}
+          className="bg-[#040F0F] w-full min-h-11 rounded-md pl-10 border-none focus:outline-none focus:ring-2 focus:ring-third-blue"
           type="text"
           placeholder="Email or Username"
           name="identifier"
@@ -58,8 +69,13 @@ function LoginForm() {
         />
 
         {/*Password Field*/}
-        <div className="flex items-center w-full rounded-md bg-[#040F0F]">
+        <div
+          className={`flex items-center w-full rounded-md bg-[#040F0F] border-none ${
+            isPasswordFocus ? " ring-2 ring-third-blue" : ""
+          }`}
+        >
           <input
+            ref={passwordInputRef}
             className="bg-[#040F0F] w-full min-h-11 rounded-md outline-none border-none pl-10"
             type={isPasswordShown ? `text` : `password`}
             placeholder="Password"
@@ -67,15 +83,23 @@ function LoginForm() {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             required
+            onFocus={() => {
+              setIsPasswordFocus(true);
+            }}
+            onBlur={() => {
+              setIsPasswordFocus(false);
+            }}
           />
           <div
             className="select-none"
-            onClick={() => {
+            onMouseDown={(e) => {
+              e.preventDefault();
               if (isPasswordShown) {
                 setIsPasswordShown(false);
               } else {
                 setIsPasswordShown(true);
               }
+              passwordInputRef.current?.focus();
             }}
           >
             {isPasswordShown ? (

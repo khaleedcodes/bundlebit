@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { PropagateLoader } from "react-spinners";
 import { Eye, EyeOff } from "lucide-react";
 
 function SignupForm() {
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
   const [isPasswordShown, setIsPasswordShown] = useState(false);
   const [isConfirmPasswordShown, setIsConfirmPasswordShown] = useState(false);
+  const [isPasswordFocus, setIsPasswordFocus] = useState(false);
+  const [isConfirmPasswordFocus, setIsConfirmPasswordFocus] = useState(false);
+
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const passwordInputRef = useRef<HTMLInputElement>(null);
+  const confirmPasswordInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    emailInputRef.current?.focus();
+  }, []);
 
   const navigate = useNavigate();
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -38,6 +48,8 @@ function SignupForm() {
       setLoading(false);
     } catch (err) {
       console.error(err);
+      setMessage("Something went wrong. Please try again.");
+      setLoading(false);
     }
   }
   return (
@@ -54,7 +66,8 @@ function SignupForm() {
         </h1>
         {/*email Field*/}
         <input
-          className="bg-[#040F0F] w-full min-h-11 rounded-md outline-none border-none pl-10"
+          ref={emailInputRef}
+          className="bg-[#040F0F] w-full min-h-11 rounded-md pl-10 border-none focus:outline-none focus:ring-2 focus:ring-third-blue"
           type="email"
           placeholder="Email Address"
           autoComplete="off"
@@ -66,7 +79,7 @@ function SignupForm() {
 
         {/*username Field*/}
         <input
-          className="bg-[#040F0F] w-full min-h-11 rounded-md outline-none border-none pl-10"
+          className="bg-[#040F0F] w-full min-h-11 rounded-md border-none focus:outline-none focus:ring-2 focus:ring-third-blue pl-10"
           type="text"
           placeholder="Username"
           autoComplete="off"
@@ -77,24 +90,37 @@ function SignupForm() {
         />
 
         {/*Password Field*/}
-        <div className="flex items-center w-full rounded-md bg-[#040F0F]">
+        <div
+          className={`flex items-center w-full rounded-md bg-[#040F0F] border-none ${
+            isPasswordFocus ? " ring-2 ring-third-blue" : ""
+          }`}
+        >
           <input
-            className="bg-[#040F0F] w-full min-h-11 rounded-md outline-none border-none pl-10"
+            ref={passwordInputRef}
+            className="bg-[#040F0F] w-full min-h-11 rounded-md border-none outline-none pl-10"
             type={isPasswordShown ? `text` : `password`}
             placeholder="Password"
             name="password"
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             required
+            onFocus={() => {
+              setIsPasswordFocus(true);
+            }}
+            onBlur={() => {
+              setIsPasswordFocus(false);
+            }}
           />
           <div
             className="select-none"
-            onClick={() => {
+            onMouseDown={(e) => {
+              e.preventDefault();
               if (isPasswordShown) {
                 setIsPasswordShown(false);
               } else {
                 setIsPasswordShown(true);
               }
+              passwordInputRef.current?.focus();
             }}
           >
             {isPasswordShown ? (
@@ -117,24 +143,37 @@ function SignupForm() {
           </div>
         </div>
         {/*Confirm Password Field*/}
-        <div className="flex items-center w-full rounded-md bg-[#040F0F]">
+        <div
+          className={`flex items-center w-full rounded-md bg-[#040F0F] border-none ${
+            isConfirmPasswordFocus ? " ring-2 ring-third-blue" : ""
+          }`}
+        >
           <input
-            className="bg-[#040F0F] w-full min-h-11 rounded-md outline-none border-none pl-10"
+            ref={confirmPasswordInputRef}
+            className="bg-[#040F0F] w-full min-h-11 rounded-md border-none outline-none pl-10"
             type={isConfirmPasswordShown ? `text` : `password`}
             placeholder="Confirm Password"
             name="password"
             onChange={(e) => setConfirmPassword(e.target.value)}
             value={confirmPassword}
             required
+            onFocus={() => {
+              setIsConfirmPasswordFocus(true);
+            }}
+            onBlur={() => {
+              setIsConfirmPasswordFocus(false);
+            }}
           />
           <div
             className="select-none"
-            onClick={() => {
+            onMouseDown={(e) => {
+              e.preventDefault();
               if (isConfirmPasswordShown) {
                 setIsConfirmPasswordShown(false);
               } else {
                 setIsConfirmPasswordShown(true);
               }
+              confirmPasswordInputRef.current?.focus();
             }}
           >
             {isConfirmPasswordShown ? (
