@@ -16,7 +16,49 @@ const userSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
-    password: { type: String, required: true },
+    displayname: {
+      type: String,
+      trim: true,
+    },
+    password: {
+      type: String,
+    },
+    authProvider: {
+      type: String,
+      required: true,
+      enum: ["bundleup", "google"],
+      trim: true,
+      lowercase: true,
+    },
+    googleId: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
+    name: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
+    familyName: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
+    givenName: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
+    profilePicture: {
+      type: String,
+      trim: true,
+      lowercase: true,
+    },
+    emailVerified: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

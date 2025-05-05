@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { PropagateLoader } from "react-spinners";
 import { Eye, EyeOff } from "lucide-react";
+import GoogleAuthButton from "../../components/auth/GoogleAuthButton";
 
 function SignupForm() {
   const [message, setMessage] = useState("");
@@ -32,11 +33,14 @@ function SignupForm() {
     }
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, username, password }),
-      });
+      const res = await fetch(
+        "http://localhost:5000/api/auth/bundleup/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, username, password }),
+        }
+      );
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem("token", data.token);
@@ -197,24 +201,26 @@ function SignupForm() {
         </div>
 
         {message && <div className="text-third-blue">{message}</div>}
-        <button
-          disabled={loading}
-          type="submit"
-          style={{
-            cursor: loading ? "not-allowed" : "pointer",
-          }}
-          className={`bg-third-blue h-11 disabled:bg-second-blue hover:bg-second-blue transition-all duration-150 p-3 text-white font-bold rounded-md w-full`}
-        >
-          {loading ? (
-            <div className="h-full flex items-center justify-center pb-2">
-              <PropagateLoader size={10} color="#fff" />
-            </div>
-          ) : (
-            <p className="h-full flex items-center justify-center">
-              create account
-            </p>
-          )}
-        </button>
+        <div className="w-full flex flex-col gap-4">
+          <button
+            disabled={loading}
+            style={{
+              cursor: loading ? "not-allowed" : "pointer",
+            }}
+            className={`bg-third-blue h-11 disabled:bg-second-blue hover:bg-second-blue transition-all duration-150 p-3 text-white font-bold rounded-md w-full`}
+          >
+            {loading ? (
+              <div className="h-full flex items-center justify-center pb-2">
+                <PropagateLoader size={10} color="#fff" />
+              </div>
+            ) : (
+              <p className="h-full flex items-center justify-center">
+                create account
+              </p>
+            )}
+          </button>
+          <GoogleAuthButton />
+        </div>
         <div className="flex gap-4">
           <p>
             Already Have an Account?{" "}

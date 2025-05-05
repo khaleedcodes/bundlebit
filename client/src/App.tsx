@@ -5,16 +5,9 @@ import PageLayout from "./pages/PageLayout";
 import "./styles/index.css";
 import LoginPage from "./pages/login-page/LoginPage";
 import SignupPage from "./pages/signup-page/SignupPage";
-// import Khaleed from "./pages/user-pages/khaleed/Khaleed";
-// import DammyIsaac from "./pages/user-pages/dammy-isaac/DammyIsaac";
-// import Solex from "./pages/user-pages/solex/Solex";
-// import PrettyJhaine from "./pages/user-pages/pretty-jhaine/PrettyJhaine";
-// import Nairaupdatesng from "./pages/user-pages/nairaupdatesng/Nairaupdatesng";
-// import Nimor from "./pages/user-pages/nimor/Nimor";
-// import Bundleup from "./pages/user-pages/bundleup/Nimor";
 import "./styles/card-animation.css";
 import DashboardPage from "./pages/dashboard-page/DashboardPage";
-import ProtectedRoute from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -42,35 +35,6 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
-
-  // {
-  //   path: "/bundleup",
-  //   element: <Bundleup />,
-  // },
-  // {
-  //   path: "/khaleed",
-  //   element: <Khaleed />,
-  // },
-  // {
-  //   path: "/nimor",
-  //   element: <Nimor />,
-  // },
-  // {
-  //   path: "/nairaupdatesng",
-  //   element: <Nairaupdatesng />,
-  // },
-  // {
-  //   path: "/prettyjhaine",
-  //   element: <PrettyJhaine />,
-  // },
-  // {
-  //   path: "/dammyisaac",
-  //   element: <DammyIsaac />,
-  // },
-  // {
-  //   path: "/solex",
-  //   element: <Solex />,
-  // },
 ]);
 
 function App() {

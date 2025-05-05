@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { PropagateLoader } from "react-spinners";
 import { Eye, EyeOff } from "lucide-react";
+import GoogleAuthButton from "../../components/auth/GoogleAuthButton";
 
 function LoginForm() {
   const [identifier, setIdentifier] = useState("");
@@ -24,7 +25,7 @@ function LoginForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch("http://localhost:5000/api/auth/bundleup/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ identifier, password }),
@@ -122,22 +123,25 @@ function LoginForm() {
           </div>
         </div>
         {message && <div className="text-third-blue">{message}</div>}
-        <button
-          disabled={loading}
-          type="submit"
-          style={{
-            cursor: loading ? "not-allowed" : "pointer",
-          }}
-          className={`bg-third-blue h-11 disabled:bg-second-blue hover:bg-second-blue transition-all duration-150 p-3 text-white font-bold rounded-md w-full`}
-        >
-          {loading ? (
-            <div className="h-full flex items-center justify-center pb-2">
-              <PropagateLoader size={10} color="#fff" />
-            </div>
-          ) : (
-            <p className="h-full flex items-center justify-center">Login</p>
-          )}
-        </button>
+        <div className="w-full flex flex-col gap-4">
+          <button
+            disabled={loading}
+            type="submit"
+            style={{
+              cursor: loading ? "not-allowed" : "pointer",
+            }}
+            className={`bg-third-blue h-11 disabled:bg-second-blue hover:bg-second-blue transition-all duration-150 p-3 text-white font-bold rounded-md w-full`}
+          >
+            {loading ? (
+              <div className="h-full flex items-center justify-center pb-2">
+                <PropagateLoader size={10} color="#fff" />
+              </div>
+            ) : (
+              <p className="h-full flex items-center justify-center">Login</p>
+            )}
+          </button>
+          <GoogleAuthButton />
+        </div>
         <div className="flex gap-4">
           <p>
             Don't Have an Account Yet?{" "}
