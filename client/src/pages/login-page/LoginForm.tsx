@@ -33,7 +33,7 @@ function LoginForm() {
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem("token", data.token);
-        localStorage.setItem("userID", data.user.id);
+        localStorage.setItem("user", JSON.stringify(data.user));
         navigate("/b/dashboard");
       }
       console.log(data.message);

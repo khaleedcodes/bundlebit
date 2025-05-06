@@ -16,12 +16,12 @@ const userSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
-    displayname: {
-      type: String,
-      trim: true,
-    },
     password: {
       type: String,
+    },
+    emailVerified: {
+      type: Boolean,
+      default: false,
     },
     authProvider: {
       type: String,
@@ -50,14 +50,14 @@ const userSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    displayname: {
+      type: String,
+      trim: true,
+    },
     profilePicture: {
       type: String,
       trim: true,
       lowercase: true,
-    },
-    emailVerified: {
-      type: Boolean,
-      default: false,
     },
   },
   { timestamps: true }
