@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { PropagateLoader } from "react-spinners";
 import { Eye, EyeOff } from "lucide-react";
-import GoogleAuthButton from "../../components/auth/GoogleAuthButton";
+import GoogleAuthButton from "../../auth/GoogleAuthButton";
+import { useAuth } from "../../context/AuthContext";
 
 function SignupForm() {
   const [message, setMessage] = useState("");
@@ -19,6 +20,8 @@ function SignupForm() {
   const emailInputRef = useRef<HTMLInputElement>(null);
   const passwordInputRef = useRef<HTMLInputElement>(null);
   const confirmPasswordInputRef = useRef<HTMLInputElement>(null);
+
+  const { login } = useAuth();
 
   useEffect(() => {
     emailInputRef.current?.focus();
@@ -43,8 +46,8 @@ function SignupForm() {
       );
       const data = await res.json();
       if (res.ok) {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
+        const { token, user } = data;
+        login(token, user);
         navigate("/b/dashboard");
       }
       console.log(data.message);

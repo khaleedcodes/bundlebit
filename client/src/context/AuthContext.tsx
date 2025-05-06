@@ -1,76 +1,86 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
-interface User {
+interface userType {
   id: string;
   email: string;
   username: string;
+  emailVerified: boolean;
+  profilePicture: string;
 }
-
 interface AuthContextType {
-  user: User | null;
-  login: (userData: User, token: string) => void;
+  isAuthenticated: boolean;
+  loading: boolean;
+  login: (token: string, user: userType) => void;
   logout: () => void;
-  authChecked: boolean;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const AuthContext = createContext<AuthContextType>({
+  isAuthenticated: false,
+  loading: true,
+  login: () => {},
+  logout: () => {},
+});
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [authChecked, setAuthChecked] = useState(false);
+function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const verifyToken = async () => {
       const token = localStorage.getItem("token");
+
       if (!token) {
-        setAuthChecked(true);
+        setIsAuthenticated(false);
+        setLoading(false);
         return;
       }
 
       try {
         const res = await fetch("http://localhost:5000/api/auth/verify", {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
 
         if (res.ok) {
-          const data = await res.json();
-          setUser(data.user); // Set user data from backend
+          setIsAuthenticated(true);
+          console.log("authenticated");
         } else {
           localStorage.removeItem("token");
-          setUser(null);
+          localStorage.removeItem("user");
+          setIsAuthenticated(false);
         }
       } catch (err) {
-        console.error("Token verification failed:", err);
-        setUser(null);
+        setIsAuthenticated(false);
       } finally {
-        setAuthChecked(true); // Verification complete
+        setLoading(false);
       }
     };
 
     verifyToken();
   }, []);
 
-  const login = (userData: User, token: string) => {
+  const login = (token: string, user: userType) => {
     localStorage.setItem("token", token);
-    setUser(userData);
+    localStorage.setItem("user", JSON.stringify(user));
+    setIsAuthenticated(true);
   };
 
   const logout = () => {
     localStorage.removeItem("token");
-    setUser(null);
+    localStorage.removeItem("user");
+    setIsAuthenticated(false);
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, authChecked }}>
+    <AuthContext.Provider value={{ isAuthenticated, loading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
 }
 
-export function useAuth() {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
-  return context;
+function useAuth() {
+  return useContext(AuthContext);
 }
+
+export { AuthProvider, useAuth };

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { PropagateLoader } from "react-spinners";
 import { Eye, EyeOff } from "lucide-react";
-import GoogleAuthButton from "../../components/auth/GoogleAuthButton";
+import GoogleAuthButton from "../../auth/GoogleAuthButton";
+import { useAuth } from "../../context/AuthContext";
 
 function LoginForm() {
   const [identifier, setIdentifier] = useState("");
@@ -15,6 +16,8 @@ function LoginForm() {
 
   const identifierInputRef = useRef<HTMLInputElement>(null);
   const passwordInputRef = useRef<HTMLInputElement>(null);
+
+  const { login } = useAuth();
 
   useEffect(() => {
     identifierInputRef.current?.focus();
@@ -32,8 +35,8 @@ function LoginForm() {
       });
       const data = await res.json();
       if (res.ok) {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
+        const { token, user } = data;
+        login(token, user);
         navigate("/b/dashboard");
       }
       console.log(data.message);

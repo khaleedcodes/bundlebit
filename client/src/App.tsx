@@ -7,7 +7,9 @@ import LoginPage from "./pages/login-page/LoginPage";
 import SignupPage from "./pages/signup-page/SignupPage";
 import "./styles/card-animation.css";
 import DashboardPage from "./pages/dashboard-page/DashboardPage";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
+import ProtectedRoute from "./auth/ProtectedRoute";
+import PublicRoute from "./auth/PublicRoute";
+import { AuthProvider } from "./context/AuthContext"; // ✅ Import your context
 
 const router = createBrowserRouter([
   {
@@ -21,11 +23,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/b/login",
-    element: <LoginPage />,
+    element: (
+      <PublicRoute>
+        <LoginPage />
+      </PublicRoute>
+    ),
   },
   {
     path: "/b/signup",
-    element: <SignupPage />,
+    element: (
+      <PublicRoute>
+        <SignupPage />
+      </PublicRoute>
+    ),
   },
   {
     path: "b/dashboard",
@@ -39,9 +49,11 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="flex flex-col">
-      <RouterProvider router={router} />
-    </div>
+    <AuthProvider>
+      <div className="flex flex-col">
+        <RouterProvider router={router} />
+      </div>
+    </AuthProvider>
   );
 }
 

@@ -1,9 +1,13 @@
 import { useGoogleLogin } from "@react-oauth/google";
-import GoogleIcon from "../../assets/icons/GoogleIcon";
+import GoogleIcon from "../assets/icons/GoogleIcon";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function GoogleAuthButton() {
   const navigate = useNavigate();
+
+  const { login } = useAuth();
+
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       const { access_token } = tokenResponse;
@@ -14,8 +18,8 @@ function GoogleAuthButton() {
       });
       const data = await res.json();
       if (res.ok) {
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
+        const { token, user } = data;
+        login(token, user);
         navigate("/b/dashboard");
       }
       console.log(data.message);

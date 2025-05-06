@@ -148,4 +148,11 @@ const googleAuthentication = async (req, res) => {
   }
 };
 
-export { registerUser, loginUser, googleAuthentication };
+const verifyToken = async (req, res) => {
+  const decodedId = req.user.id;
+  const user = await User.findById(decodedId);
+  if (!user) return res.status(401).json({ message: "User no longer exists" });
+  sendAuthResponse(res, user, false);
+};
+
+export { registerUser, loginUser, googleAuthentication, verifyToken };
