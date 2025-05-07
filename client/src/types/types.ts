@@ -41,7 +41,7 @@ type UserCardType = {
   bundleLink: string;
   bundleName: string;
 };
-type TabType = "Dashboard" | "Blog";
+type TabType = "Dashboard" | "My Bundle";
 type SideBarProps = {
   switchTab: (tabName: TabType) => void;
 };

@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema(
     authProvider: {
       type: String,
       required: true,
-      enum: ["bundleup", "google"],
+      enum: ["bundlebits", "google"],
       trim: true,
       lowercase: true,
     },

@@ -2,8 +2,8 @@ import { SideBarLinkType } from "../../types/types";
 import { SideBarLinkListProps } from "../../types/types";
 import SideBarLink from "./SideBarLink";
 const sideBarLinks: SideBarLinkType[] = [
+  { tabName: "My Bundle" },
   { tabName: "Dashboard" },
-  { tabName: "Blog" },
 ];
 
 function SideBarLinkList({ switchTab }: SideBarLinkListProps) {

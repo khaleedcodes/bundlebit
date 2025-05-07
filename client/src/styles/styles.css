@@ -1,0 +1,6 @@
+.scrollbar-hidden-until-overflow {
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hidden-until-overflow::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

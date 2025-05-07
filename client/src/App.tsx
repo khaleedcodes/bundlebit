@@ -2,14 +2,15 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LandingPage from "./pages/landing-page/LandingPage";
 import ErrorPage from "./pages/error-page/ErrorPage";
 import PageLayout from "./pages/PageLayout";
-import "./styles/index.css";
 import LoginPage from "./pages/login-page/LoginPage";
 import SignupPage from "./pages/signup-page/SignupPage";
-import "./styles/card-animation.css";
 import DashboardPage from "./pages/dashboard-page/DashboardPage";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import PublicRoute from "./auth/PublicRoute";
-import { AuthProvider } from "./context/AuthContext"; // ✅ Import your context
+import { AuthProvider } from "./context/AuthContext";
+import "./styles/card-animation.css";
+import "./styles/index.css";
+import "./styles/styles.css";
 
 const router = createBrowserRouter([
   {

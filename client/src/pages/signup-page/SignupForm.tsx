@@ -37,7 +37,7 @@ function SignupForm() {
     setLoading(true);
     try {
       const res = await fetch(
-        "http://localhost:5000/api/auth/bundleup/register",
+        "http://localhost:5000/api/auth/bundlebits/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

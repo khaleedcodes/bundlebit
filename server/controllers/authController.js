@@ -50,7 +50,7 @@ const registerUser = async (req, res) => {
       username,
       password: hashedPassword,
       emailVerified: false,
-      authProvider: "bundleup",
+      authProvider: "bundlebits",
     });
     await newUser.save();
 

@@ -5,11 +5,11 @@ import { UserLinkType } from "../../../types/types";
 import { Link } from "react-router-dom";
 const userLinkList: UserLinkType[] = [
   {
-    link: "https://bundleup.netlify.app/",
+    link: "https://bundlebits.me/",
     linkName: "Website",
   },
   {
-    link: "mailto:bundleupofficial@gmail.com",
+    link: "mailto:bundlebitsofficial@gmail.com",
     linkName: "Email",
   },
 ];
@@ -22,7 +22,7 @@ function Bundleup() {
             <img src={bundleImage} />
           </div>
           <div className="flex items-center gap-1">
-            <p className="font-bold text-xl">@bundleup</p>
+            <p className="font-bold text-xl">@bundlebits</p>
             <VerifiedIcon />
           </div>
         </div>
