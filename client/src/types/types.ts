@@ -50,6 +50,22 @@ type SideBarLinkType = {
   tabName: TabType;
 };
 type SideBarLinkProps = SideBarProps & SideBarLinkType;
+interface userType {
+  id: string;
+  email: string;
+  username: string;
+  emailVerified: boolean;
+  profilePicture: string;
+  bundles: [string];
+}
+interface AuthContextType {
+  isAuthenticated: boolean;
+  token: string;
+  user: userType;
+  loading: boolean;
+  login: (token: string, user: userType) => void;
+  logout: () => void;
+}
 export type {
   TabType,
   SideBarProps,
@@ -68,4 +84,6 @@ export type {
   UserLinkType,
   UserLinkProps,
   UserCardType,
+  userType,
+  AuthContextType,
 };

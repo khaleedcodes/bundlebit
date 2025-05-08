@@ -5,7 +5,7 @@ import {
   googleAuthentication,
   verifyToken,
 } from "../controllers/authController.js";
-import { protectRoute } from "../middlewares/authMiddleware.js";
+import protectRoute from "../middlewares/authMiddleware.js";
 import registerLimiter from "../middlewares/registerRatelimitMiddleware.js";
 
 const authRoutes = express.Router();

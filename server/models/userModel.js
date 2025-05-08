@@ -30,6 +30,12 @@ const userSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    bundles: {
+      type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Bundle" }],
+    },
+    bio: {
+      type: String,
+    },
     googleId: {
       type: String,
       trim: true,

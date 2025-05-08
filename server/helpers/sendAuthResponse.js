@@ -10,11 +10,12 @@ const sendAuthResponse = (res, user, isRegister = true) => {
       : `account: ${user.username} logged in`,
     token,
     user: {
-      id: user._id,
-      email: user.email,
-      username: user.username,
-      emailVerified: user.emailVerified,
+      id: user._id || "",
+      email: user.email || "",
+      username: user.username || "",
+      emailVerified: user.emailVerified || false,
       profilePicture: user.profilePicture || "",
+      bundles: user.bundles || [],
     },
   });
 };

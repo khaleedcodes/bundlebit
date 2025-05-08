@@ -57,7 +57,7 @@ function LoginForm() {
         <h1 className="text-4xl font-bold text-center">
           Welcome back to{" "}
           <span className="text-third-blue">
-            Bundle<span className="text-second-blue">up</span>
+            Bundle<span className="text-second-blue">bits</span>
           </span>
         </h1>
         {/*Identifier Field*/}

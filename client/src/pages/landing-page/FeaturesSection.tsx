@@ -21,8 +21,8 @@ function FeaturesSection() {
       }}
     >
       <h1 className="text-5xl max-sm:text-3xl font-bold text-center">
-        <span className="text-third-blue">Bundle</span> it{" "}
-        <span className="text-second-blue">up</span> with awesome tools
+        <span className="text-third-blue">Bundle</span> your{" "}
+        <span className="text-second-blue">bits</span> with awesome tools
       </h1>
       <FeatureCardList />
       <Link

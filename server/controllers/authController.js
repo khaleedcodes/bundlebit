@@ -4,6 +4,8 @@ import fetch from "node-fetch";
 import generateUniqueUsername from "../helpers/generateUniqueUsername.js";
 import sendAuthResponse from "../helpers/sendAuthResponse.js";
 
+import { createBundle } from "./bundleController.js";
+
 const registerUser = async (req, res) => {
   try {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -54,7 +56,8 @@ const registerUser = async (req, res) => {
     });
     await newUser.save();
 
-    sendAuthResponse(res, newUser);
+    req.user = newUser;
+    createBundle(req, res);
   } catch (err) {
     console.error("Register error:", err);
     res.status(500).json({ message: "Server error, please try again later." });
@@ -140,7 +143,9 @@ const googleAuthentication = async (req, res) => {
         profilePicture: picture,
       });
       await newUser.save();
-      sendAuthResponse(res, newUser);
+
+      req.user = newUser;
+      createBundle(req, res);
     }
   } catch (error) {
     console.error(error);
@@ -149,8 +154,7 @@ const googleAuthentication = async (req, res) => {
 };
 
 const verifyToken = async (req, res) => {
-  const decodedId = req.user.id;
-  const user = await User.findById(decodedId);
+  const user = req.user;
   if (!user) return res.status(401).json({ message: "User no longer exists" });
   sendAuthResponse(res, user, false);
 };

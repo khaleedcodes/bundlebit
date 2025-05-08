@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { UserCircle } from "lucide-react";
+// import { useAuth } from "../../context/AuthContext";
 
 const ProfileForm = () => {
   const [displayName, setDisplayName] = useState("");
   const [bio, setBio] = useState("");
+
+  // const { user } = useAuth();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
