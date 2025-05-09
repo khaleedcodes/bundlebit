@@ -11,6 +11,7 @@ import { AuthProvider } from "./context/AuthContext";
 import "./styles/card-animation.css";
 import "./styles/index.css";
 import "./styles/styles.css";
+import PublicBundlePage from "./pages/public-bundle-page/PublicBundlePage";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
         <DashboardPage />
       </ProtectedRoute>
     ),
+  },
+  {
+    path: "/:username",
+    element: <PublicBundlePage />,
   },
 ]);
 

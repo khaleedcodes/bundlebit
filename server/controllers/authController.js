@@ -118,7 +118,7 @@ const googleAuthentication = async (req, res) => {
       name,
       given_name,
       family_name,
-      picture,
+      // picture,
       email,
       email_verified,
     } = googleData;
@@ -140,7 +140,7 @@ const googleAuthentication = async (req, res) => {
         name,
         familyName: family_name,
         givenName: given_name,
-        profilePicture: picture,
+        // profilePicture: picture,
       });
       await newUser.save();
 

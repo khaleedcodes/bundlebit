@@ -40,12 +40,30 @@ const BitManager = () => {
       },
       body: JSON.stringify(newBit),
     });
-    console.log(res);
     if (res.ok) {
       setNewBit({ title: "", url: "" });
       getBits();
     }
   };
+
+  async function handleDelete(bitID: string) {
+    const res = await fetch(
+      `http://localhost:5000/api/bundles/me/bits/${bitID}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    if (res.ok) {
+      getBits();
+    }
+
+    const data = await res.json();
+    console.log(data.message);
+  }
 
   return (
     <div className="gap-4 flex-col flex bg-first-card p-6 rounded-2xl">
@@ -87,7 +105,19 @@ const BitManager = () => {
                 >
                   {bit.title}
                 </a>
-                <button className="text-red-500">Delete</button>
+                <div className="flex gap-7">
+                  <button className="text-green-500" onClick={() => {}}>
+                    Edit
+                  </button>
+                  <button
+                    className="text-red-500"
+                    onClick={() => {
+                      handleDelete(bit._id);
+                    }}
+                  >
+                    Delete
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
