@@ -3,10 +3,12 @@ import { SideBarLinkListProps } from "../../types/types";
 import SideBarLink from "./SideBarLink";
 const sideBarLinks: SideBarLinkType[] = [
   { tabName: "My Bundle" },
-  { tabName: "Dashboard" },
+  // { tabName: "Dashboard" },
 ];
+import { useAuth } from "../../context/AuthContext";
 
 function SideBarLinkList({ switchTab }: SideBarLinkListProps) {
+  const { logout } = useAuth();
   return (
     <div className="gap-4 flex flex-col max-sm:flex-row max-sm:items-center">
       {sideBarLinks.map(({ tabName }, index) => {
@@ -14,6 +16,15 @@ function SideBarLinkList({ switchTab }: SideBarLinkListProps) {
           <SideBarLink tabName={tabName} switchTab={switchTab} key={index} />
         );
       })}
+      <div>
+        <button
+          onClick={() => {
+            logout();
+          }}
+        >
+          logout
+        </button>
+      </div>
     </div>
   );
 }

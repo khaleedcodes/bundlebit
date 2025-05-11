@@ -37,7 +37,7 @@ function SignupForm() {
     setLoading(true);
     try {
       const res = await fetch(
-        "http://localhost:5000/api/auth/bundlebits/register",
+        "http://localhost:5000/api/auth/bundlebit/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -68,7 +68,7 @@ function SignupForm() {
         <h1 className="text-4xl font-bold text-center">
           Join{" "}
           <span className="text-third-blue">
-            Bundle<span className="text-second-blue">bits</span>
+            Bundle<span className="text-second-blue">bit</span>
           </span>
         </h1>
         {/*email Field*/}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import defaultAvatar from "../../assets/images/default-avatar.jpeg"
+import defaultAvatar from "../../assets/images/default-avatar.jpeg";
 
 interface Bit {
   title: string;
@@ -157,7 +157,13 @@ const PublicBundlePage = () => {
           {/* Small attribution at the bottom */}
           <div className="mt-10 flex justify-center">
             <span className="text-xs text-gray-600 hover:text-gray-400 transition-colors">
-              Created with Bundlebits
+              Created with{" "}
+              <a
+                href="https://bundlebit.me/"
+                className="text-first-blue hover:text-third-blue transition-colors text-decoration-none"
+              >
+                Bundlebit
+              </a>
             </span>
           </div>
         </div>

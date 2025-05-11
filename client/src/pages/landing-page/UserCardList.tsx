@@ -5,17 +5,17 @@ import nairaupdatesngImage from "../user-pages/nairaupdatesng/nairaupdatesng-ima
 import nimorImage from "../user-pages/nimor/nimor-image.png";
 const users: UserCardType[] = [
   {
-    bundleLink: "https://bundlebits.me/nimor",
+    bundleLink: "https://bundlebit.me/nimor",
     bundleName: "/nimor",
     userImage: nimorImage,
   },
   {
-    bundleLink: "https://bundlebits.me/khaleed",
+    bundleLink: "https://bundlebit.me/khaleed",
     bundleName: "/khaleed",
     userImage: khaleedImage,
   },
   {
-    bundleLink: "https://bundlebits.me/nairaupdatesng",
+    bundleLink: "https://bundlebit.me/nairaupdatesng",
     bundleName: "/nairaupdatesng",
     userImage: nairaupdatesngImage,
   },
