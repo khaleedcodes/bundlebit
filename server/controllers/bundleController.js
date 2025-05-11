@@ -31,6 +31,7 @@ async function createBundle(req, res) {
     sendAuthResponse(res, user);
   } catch (error) {
     console.error(error);
+    res.status(500).json({ message: "Failed to create bundle" });
   }
 }
 

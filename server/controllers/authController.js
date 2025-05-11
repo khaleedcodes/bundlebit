@@ -57,7 +57,7 @@ const registerUser = async (req, res) => {
     await newUser.save();
 
     req.user = newUser;
-    createBundle(req, res);
+    await createBundle(req, res);
   } catch (err) {
     console.error("Register error:", err);
     res.status(500).json({ message: "Server error, please try again later." });
@@ -145,7 +145,7 @@ const googleAuthentication = async (req, res) => {
       await newUser.save();
 
       req.user = newUser;
-      createBundle(req, res);
+      await createBundle(req, res);
     }
   } catch (error) {
     console.error(error);
