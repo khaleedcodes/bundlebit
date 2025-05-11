@@ -157,7 +157,7 @@ const PublicBundlePage = () => {
           {/* Small attribution at the bottom */}
           <div className="mt-10 flex justify-center">
             <span className="text-xs text-gray-600 hover:text-gray-400 transition-colors">
-              Created with Bundlebits
+              Created with Bundlebit
             </span>
           </div>
         </div>
