@@ -66,7 +66,17 @@ interface AuthContextType {
   login: (token: string, user: userType) => void;
   logout: () => void;
 }
+interface bitType {
+  _id: string;
+  title: string;
+  url: string;
+}
+interface bitItemProps extends bitType {
+  getBits: () => void;
+}
 export type {
+  bitType,
+  bitItemProps,
   TabType,
   SideBarProps,
   SideBarLinkListProps,

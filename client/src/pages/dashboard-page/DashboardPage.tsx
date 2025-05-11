@@ -1,6 +1,6 @@
 import { TabType } from "../../types/types";
 import { useState } from "react";
-import DashboardScreen from "./screens/DashboardScreen";
+// import DashboardScreen from "./screens/DashboardScreen";
 import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 import MyBundleScreen from "./screens/MyBundleScreen";
@@ -19,7 +19,8 @@ function DashboardPage() {
         <SideBar switchTab={switchTab} />
       </div>
       <div className="w-full p-10 max-sm:p-4">
-        {tab === "My Bundle" ? <MyBundleScreen /> : <DashboardScreen />}
+        {tab === "My Bundle" && <MyBundleScreen />}
+        {/* {tab === "My Bundle" ? <MyBundleScreen /> : <DashboardScreen />} */}
       </div>
     </div>
   );
