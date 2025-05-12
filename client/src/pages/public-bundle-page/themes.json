@@ -1,0 +1,308 @@
+[
+  {
+    "id": "absolute",
+    "name": "Absolute Theme",
+    "description": "Precise and clean with fixed layout design",
+    "color": "from-gray-200 to-gray-400"
+  },
+  {
+    "id": "arcade",
+    "name": "Arcade Theme",
+    "description": "Retro pixel art and chiptune vibes",
+    "color": "from-yellow-500 to-red-600"
+  },
+  {
+    "id": "aurora",
+    "name": "Aurora Theme",
+    "description": "Northern lights inspired with soft flowing gradients",
+    "color": "from-cyan-400 to-purple-500"
+  },
+  {
+    "id": "brutalist",
+    "name": "Brutalist Theme",
+    "description": "Bold black and white with chunky rectangles",
+    "color": "from-gray-700 to-gray-900"
+  },
+  {
+    "id": "bubble",
+    "name": "Bubble Theme",
+    "description": "Playful floating bubbles with a fresh blue gradient",
+    "color": "from-blue-400 to-cyan-600"
+  },
+  {
+    "id": "cybergradient",
+    "name": "Cyber Gradient Theme",
+    "description": "Futuristic cyberpunk dashboard with grid pattern",
+    "color": "from-purple-800 to-indigo-900"
+  },
+  {
+    "id": "cybernetic",
+    "name": "Cybernetic Theme",
+    "description": "High-tech theme with robotic UI elements",
+    "color": "from-gray-800 to-lime-400"
+  },
+  {
+    "id": "default",
+    "name": "Default Theme",
+    "description": "Clean, modern interface with a gradient background",
+    "color": "from-indigo-500 to-purple-600"
+  },
+  {
+    "id": "diamond",
+    "name": "Diamond Theme",
+    "description": "Sparkly gem-like interface with clarity",
+    "color": "from-blue-300 to-white"
+  },
+  {
+    "id": "discord",
+    "name": "Discord Theme",
+    "description": "Inspired by Discord's sleek dark UI",
+    "color": "from-gray-700 to-indigo-700"
+  },
+  {
+    "id": "duotone",
+    "name": "Duotone Theme",
+    "description": "Two-tone color scheme with a trendy feel",
+    "color": "from-pink-500 to-indigo-500"
+  },
+  {
+    "id": "festival",
+    "name": "Festival Theme",
+    "description": "Colorful celebration theme with confetti animation",
+    "color": "from-purple-600 to-pink-500"
+  },
+  {
+    "id": "firefly",
+    "name": "Firefly Theme",
+    "description": "Magical night scene with glowing firefly lights",
+    "color": "from-blue-950 to-gray-950"
+  },
+  {
+    "id": "floatingisland",
+    "name": "Floating Island Theme",
+    "description": "Whimsical sky islands with soft cloud elements",
+    "color": "from-sky-300 to-blue-500"
+  },
+  {
+    "id": "foilshimmer",
+    "name": "Foil Shimmer Theme",
+    "description": "Premium foil card with subtle rainbow shimmer",
+    "color": "from-gray-100 to-gray-300"
+  },
+  {
+    "id": "futuristicgrid",
+    "name": "Futuristic Grid Theme",
+    "description": "Sci-fi interface with perspective grid and blue accents",
+    "color": "from-blue-900 to-black"
+  },
+  {
+    "id": "galacticnight",
+    "name": "Galactic Night Theme",
+    "description": "Deep space with stars and galaxy swirls",
+    "color": "from-indigo-800 to-black"
+  },
+  {
+    "id": "glass",
+    "name": "Glass Theme",
+    "description": "Frosted glass panels with blur effects",
+    "color": "from-blue-400 to-indigo-500"
+  },
+  {
+    "id": "glassmorphism",
+    "name": "Glassmorphism Theme",
+    "description": "Modern blurred glass UI elements",
+    "color": "from-white/20 to-white/40"
+  },
+  {
+    "id": "glitchcore",
+    "name": "Glitchcore Theme",
+    "description": "Intense glitch effects and neon distortion",
+    "color": "from-pink-500 to-blue-500"
+  },
+  {
+    "id": "gradientglass",
+    "name": "Gradient Glass Theme",
+    "description": "Full gradient backdrop with floating frosted glass card",
+    "color": "from-purple-600 to-orange-400"
+  },
+  {
+    "id": "holographic",
+    "name": "Holographic Theme",
+    "description": "Rainbow holographic effect with glowing highlights",
+    "color": "from-blue-600 to-purple-600"
+  },
+  {
+    "id": "lavalamp",
+    "name": "Lava Lamp Theme",
+    "description": "Fluid, morphing blob animations in dark background",
+    "color": "from-purple-900 to-pink-900"
+  },
+  {
+    "id": "luxegold",
+    "name": "Luxe Gold Theme",
+    "description": "Luxury dark theme with gold accents and highlights",
+    "color": "from-amber-400 to-yellow-600"
+  },
+  {
+    "id": "magazine",
+    "name": "Magazine Theme",
+    "description": "Bold layout inspired by editorial design",
+    "color": "from-white to-black"
+  },
+  {
+    "id": "matrix",
+    "name": "Matrix Theme",
+    "description": "Digital code rain over dark background",
+    "color": "from-green-500 to-emerald-700"
+  },
+  {
+    "id": "minimal",
+    "name": "Minimal Theme",
+    "description": "Clean, minimal design with subtle animations",
+    "color": "from-gray-400 to-gray-600"
+  },
+  {
+    "id": "minimalwhite",
+    "name": "Minimal White Theme",
+    "description": "Ultra-clean white with thin lines and subtle shadows",
+    "color": "from-gray-50 to-white"
+  },
+  {
+    "id": "minecraft",
+    "name": "Minecraft Theme",
+    "description": "Blocky pixels and earthy textures",
+    "color": "from-green-600 to-brown-400"
+  },
+  {
+    "id": "nature",
+    "name": "Nature Theme",
+    "description": "Leafy green eco-friendly design with organic elements",
+    "color": "from-green-700 to-green-900"
+  },
+  {
+    "id": "neon",
+    "name": "Neon Theme",
+    "description": "Cyberpunk vibes with neon pink glowing elements",
+    "color": "from-pink-500 to-pink-600"
+  },
+  {
+    "id": "neubrutalism",
+    "name": "Neubrutalism Theme",
+    "description": "New take on brutalism with bold shapes and bright colors",
+    "color": "from-yellow-300 to-pink-500"
+  },
+  {
+    "id": "oceandepth",
+    "name": "Ocean Depth Theme",
+    "description": "Deep blue underwater aesthetic with floating bubbles",
+    "color": "from-blue-800 to-blue-950"
+  },
+  {
+    "id": "outrun",
+    "name": "Outrun Theme",
+    "description": "Synthwave Miami neon with fast-paced styling",
+    "color": "from-fuchsia-600 to-cyan-500"
+  },
+  {
+    "id": "paper",
+    "name": "Paper Theme",
+    "description": "Warm paper texture with torn edges",
+    "color": "from-amber-200 to-amber-400"
+  },
+  {
+    "id": "pastelpop",
+    "name": "Pastel Pop Theme",
+    "description": "Bright, friendly pastel colors with playful design",
+    "color": "from-pink-300 to-purple-300"
+  },
+  {
+    "id": "pixelart",
+    "name": "Pixel Art Theme",
+    "description": "Nostalgic pixel art with retro charm",
+    "color": "from-yellow-200 to-red-300"
+  },
+  {
+    "id": "retro",
+    "name": "Retro Theme",
+    "description": "90s retro aesthetic with bold colors",
+    "color": "from-fuchsia-500 to-cyan-400"
+  },
+  {
+    "id": "scrapbook",
+    "name": "Scrapbook Theme",
+    "description": "DIY cutout look with layered elements",
+    "color": "from-pink-100 to-yellow-200"
+  },
+  {
+    "id": "sketch",
+    "name": "Sketch Theme",
+    "description": "Hand-drawn wireframe style with paper and doodles",
+    "color": "from-gray-500 to-gray-700"
+  },
+  {
+    "id": "starfield",
+    "name": "Starfield Theme",
+    "description": "Cosmic starry night sky with twinkling effects",
+    "color": "from-indigo-900 to-blue-800"
+  },
+  {
+    "id": "sunset",
+    "name": "Sunset Theme",
+    "description": "Warm sunset gradient with wave animations",
+    "color": "from-orange-400 to-pink-600"
+  },
+  {
+    "id": "synthwave",
+    "name": "Synthwave Theme",
+    "description": "80s inspired synths and neon lights",
+    "color": "from-pink-600 to-purple-700"
+  },
+  {
+    "id": "terminal",
+    "name": "Terminal Theme",
+    "description": "Green-on-black terminal interface with typewriter effect",
+    "color": "from-green-500 to-green-800"
+  },
+  {
+    "id": "tiktokglow",
+    "name": "TikTok Glow Theme",
+    "description": "High-contrast UI with glowing TikTok-inspired vibes",
+    "color": "from-pink-600 to-cyan-500"
+  },
+  {
+    "id": "topography",
+    "name": "Topography Theme",
+    "description": "Map-like contour lines with a neutral base",
+    "color": "from-gray-200 to-gray-400"
+  },
+  {
+    "id": "vaporwave",
+    "name": "Vaporwave Theme",
+    "description": "80s/90s VHS aesthetic with glitch effects",
+    "color": "from-cyan-400 to-fuchsia-500"
+  },
+  {
+    "id": "vicecity",
+    "name": "Vice City Theme",
+    "description": "Palm trees and sunset cityscape aesthetic",
+    "color": "from-pink-600 to-orange-300"
+  },
+  {
+    "id": "vhs",
+    "name": "VHS Theme",
+    "description": "Retro VHS tape aesthetic with distorted glitch effects",
+    "color": "from-red-900 to-purple-900"
+  },
+  {
+    "id": "watercolor",
+    "name": "Watercolor Theme",
+    "description": "Soft artistic watercolor wash with pastel hues",
+    "color": "from-rose-100 to-blue-100"
+  },
+  {
+    "id": "zen",
+    "name": "Zen Theme",
+    "description": "Calm, minimalist design with soft sky blue accents",
+    "color": "from-sky-100 to-blue-200"
+  }
+]
