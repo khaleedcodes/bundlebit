@@ -12,6 +12,8 @@ import "./styles/card-animation.css";
 import "./styles/index.css";
 import "./styles/styles.css";
 import PublicBundlePage from "./pages/public-bundle-page/PublicBundlePage";
+import Page from "./pages/landing-page/Page";
+import ThemeSelectorPage from "./pages/public-bundle-page/ThemeSelectorPage";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       </PageLayout>
     ),
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/page",
+    element: <Page />,
+  },
+  {
+    path: "/themes",
+    element: <ThemeSelectorPage />,
   },
   {
     path: "/b/login",
