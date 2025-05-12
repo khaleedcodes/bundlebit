@@ -1,23 +1,22 @@
 import { UserCardType } from "../../types/types";
 import UserCard from "./UserCard";
-import khaleedImage from "../user-pages/khaleed/khaleed-image.jpeg";
-import nairaupdatesngImage from "../user-pages/nairaupdatesng/nairaupdatesng-image.png";
-import nimorImage from "../user-pages/nimor/nimor-image.png";
+import defaultAvatar from "../../assets/images/default-avatar.jpeg";
+
 const users: UserCardType[] = [
   {
     bundleLink: "https://bundlebit.me/nimor",
     bundleName: "/nimor",
-    userImage: nimorImage,
+    userImage: defaultAvatar,
   },
   {
     bundleLink: "https://bundlebit.me/khaleed",
     bundleName: "/khaleed",
-    userImage: khaleedImage,
+    userImage: defaultAvatar,
   },
   {
     bundleLink: "https://bundlebit.me/nairaupdatesng",
     bundleName: "/nairaupdatesng",
-    userImage: nairaupdatesngImage,
+    userImage: defaultAvatar,
   },
 ];
 function UserCardList() {

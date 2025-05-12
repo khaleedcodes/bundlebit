@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     element: <Page />,
   },
   {
-    path: "/themes",
+    path: "/b/themes",
     element: <ThemeSelectorPage />,
   },
   {
