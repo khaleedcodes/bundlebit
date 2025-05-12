@@ -1,12 +1,55 @@
 import { usePublicBundle } from "./usePublicBundle";
-// import DefaultTheme from "./bundle-themes/DefaultTheme";
-// import BrutalistTheme from "./bundle-themes/BrutalistTheme";
-// import GlassTheme from "./bundle-themes/GlassTheme";
-// import MatrixTheme from "./bundle-themes/MatrixTheme";
-// import MinimalTheme from "./bundle-themes/MinimalTheme";
-// import NeonTheme from "./bundle-themes/NeonTheme";
-// import PaperTheme from "./bundle-themes/PaperTheme";
-import RetroTheme from "./bundle-themes/RetroTheme";
+import DefaultTheme from "./themes/DefaultTheme";
+import NeonTheme from "./themes/NeonTheme";
+import GlassTheme from "./themes/GlassTheme";
+import BrutalistTheme from "./themes/BrutalistTheme";
+import MinimalTheme from "./themes/MinimalTheme";
+import RetroTheme from "./themes/RetroTheme";
+import PaperTheme from "./themes/PaperTheme";
+import TerminalTheme from "./themes/TerminalTheme";
+import SunsetTheme from "./themes/SunsetTheme";
+import MatrixTheme from "./themes/MatrixTheme";
+import VaporwaveTheme from "./themes/VaporwaveTheme";
+import AuroraTheme from "./themes/AuroraTheme";
+import LuxeGoldTheme from "./themes/LuxeGoldTheme";
+import StarfieldTheme from "./themes/StarfieldTheme";
+import PastelPopTheme from "./themes/PastelPopTheme";
+import SketchTheme from "./themes/SketchTheme";
+import OceanDepthTheme from "./themes/OceanDepthTheme";
+import NatureTheme from "./themes/NatureTheme";
+import BubbleTheme from "./themes/BubbleTheme";
+import CyberGradientTheme from "./themes/CyberGradientTheme";
+import ZenTheme from "./themes/ZenTheme";
+import FestivalTheme from "./themes/FestivalTheme";
+import FireflyTheme from "./themes/FireflyTheme";
+import WatercolorTheme from "./themes/WatercolorTheme";
+import LavaLampTheme from "./themes/LavaLampTheme";
+import MinimalWhiteTheme from "./themes/MinimalWhiteTheme";
+import GradientGlassTheme from "./themes/GradientGlassTheme";
+import FuturisticGridTheme from "./themes/FuturisticGridTheme";
+import VHSTheme from "./themes/VHSTheme";
+import HolographicTheme from "./themes/HolographicTheme";
+import FoilShimmerTheme from "./themes/FoilShimmerTheme";
+import DiamondTheme from "./themes/DiamondTheme";
+import PixelArtTheme from "./themes/PixelArtTheme";
+import MagazineTheme from "./themes/MagazineTheme";
+import SynthwaveTheme from "./themes/SynthwaveTheme";
+import NeubrutalismTheme from "./themes/NeubrutalismTheme";
+import GlassmorphismTheme from "./themes/GlassmorphismTheme";
+import GalacticNightTheme from "./themes/GalacticNightTheme";
+import FloatingIslandTheme from "./themes/FloatingIslandTheme";
+import DuotoneTheme from "./themes/DuotoneTheme";
+import CyberneticTheme from "./themes/CyberneticTheme";
+import ScrapbookTheme from "./themes/ScrapbookTheme";
+import ArcadeTheme from "./themes/ArcadeTheme";
+import OutrunTheme from "./themes/OutrunTheme";
+import AbsoluteTheme from "./themes/AbsoluteTheme";
+import TopographyTheme from "./themes/TopographyTheme";
+import ViceCityTheme from "./themes/ViceCityTheme";
+import MinecraftTheme from "./themes/MinecraftTheme";
+import TikTokGlowTheme from "./themes/TitTokGlowTheme";
+import DiscordTheme from "./themes/DiscordTheme";
+import GlitchcoreTheme from "./themes/GlitchcoreTheme";
 
 const PublicBundlePage = () => {
   const { bundle, loading } = usePublicBundle();
@@ -43,7 +86,7 @@ const PublicBundlePage = () => {
   switch (bundle.theme) {
     case "default":
     default:
-      return <RetroTheme bundle={bundle} />;
+      return <GlitchcoreTheme bundle={bundle} />;
   }
 };
 
