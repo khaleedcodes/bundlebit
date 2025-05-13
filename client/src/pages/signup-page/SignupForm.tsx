@@ -4,6 +4,7 @@ import { PropagateLoader } from "react-spinners";
 import { Eye, EyeOff } from "lucide-react";
 import GoogleAuthButton from "../../auth/GoogleAuthButton";
 import { useAuth } from "../../context/AuthContext";
+import { useSearchParams } from "react-router-dom";
 
 function SignupForm() {
   const [message, setMessage] = useState("");
@@ -18,14 +19,19 @@ function SignupForm() {
   const [isConfirmPasswordFocus, setIsConfirmPasswordFocus] = useState(false);
 
   const emailInputRef = useRef<HTMLInputElement>(null);
+  const usernameInputRef = useRef<HTMLInputElement>(null);
   const passwordInputRef = useRef<HTMLInputElement>(null);
   const confirmPasswordInputRef = useRef<HTMLInputElement>(null);
 
   const { login } = useAuth();
 
+  const [searchParams] = useSearchParams();
+  const paramUsername = searchParams.get("username");
+
   useEffect(() => {
     emailInputRef.current?.focus();
-  }, []);
+    if (paramUsername && usernameInputRef.current) setUsername(paramUsername);
+  }, [paramUsername]);
 
   const navigate = useNavigate();
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -70,6 +76,7 @@ function SignupForm() {
           <span className="text-third-blue">
             Bundle<span className="text-second-blue">bit</span>
           </span>
+          {paramUsername && ` as @${paramUsername}`}
         </h1>
         {/*email Field*/}
         <input
@@ -86,6 +93,7 @@ function SignupForm() {
 
         {/*username Field*/}
         <input
+          ref={usernameInputRef}
           className="bg-[#040F0F] w-full min-h-11 rounded-md border-none focus:outline-none focus:ring-2 focus:ring-third-blue pl-10"
           type="text"
           placeholder="Username"

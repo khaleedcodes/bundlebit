@@ -5,8 +5,10 @@ import {
   FaLink,
   FaMagic,
   FaLayerGroup,
+  FaCheck,
 } from "react-icons/fa";
 import RevealOnScroll from "./RevealOnScroll";
+import ThemesSvg from "./ThemesSvg";
 // import TrustedBySection from "./TrustedBySection";
 
 const featuresData = [
@@ -14,14 +16,14 @@ const featuresData = [
     featureIcon: FaMagic,
     featureHeader: "Create your Bundle in seconds",
     featureDescription:
-      "Instantly build a clean, personalized page to showcase all your important links in one place.",
+      "Instantly build a clean, personalized page to showcase all your important links in one place — from TikTok, YouTube, Instagram, and X to your store, blog, latest project, and more.",
     accentColor: "first-accent",
   },
   {
     featureIcon: FaLink,
     featureHeader: "Share one link to rule them all",
     featureDescription:
-      "Simplify your online presence. Share a single link that gives your audience access to everything you want them to see.",
+      "Simplify your online presence. Add a single unique Bundle URL to your social media bios, giving your audience easy access to everything you want them to see.",
     accentColor: "third-blue",
   },
   {
@@ -240,54 +242,52 @@ function FeaturesSection() {
             ))}
           </div>
 
-          {/* <RevealOnScroll delay={0.3}>
+          <RevealOnScroll delay={0.3}>
             <div className="mt-20 md:mt-32">
               <div className="bg-first-card rounded-2xl border border-first-section-divider overflow-hidden">
                 <div className="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                   <div>
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-first-accent/20 text-first-accent mb-6">
                       <span className="w-2 h-2 bg-third-blue rounded-full mr-2"></span>
-                      Analytics Dashboard
+                      Customizable Themes
                     </span>
                     <h3 className="font-poppins font-semibold text-2xl mb-4">
-                      Track your performance and understand your audience
+                      Over 50+ Themes to Choose From
                     </h3>
                     <p className="text-grey mb-6">
-                      Get detailed insights on how visitors interact with your
-                      Bundle. See which links perform best and optimize your
-                      content.
+                      Personalize your Bundle with more than 50 unique themes.
+                      Whether you prefer a sleek, modern look or a vibrant,
+                      playful style, we've got you covered.
                     </p>
                     <ul className="space-y-3 mb-6">
                       <li className="flex items-start">
                         <FaCheck className="text-expand-button mt-1 mr-3" />
                         <span className="text-grey">
-                          Real-time click tracking
+                          A diverse selection of themes for every personality
                         </span>
                       </li>
                       <li className="flex items-start">
                         <FaCheck className="text-expand-button mt-1 mr-3" />
-                        <span className="text-grey">Visitor demographics</span>
+                        <span className="text-grey">
+                          Easy theme switching to match your style
+                        </span>
                       </li>
                       <li className="flex items-start">
                         <FaCheck className="text-expand-button mt-1 mr-3" />
                         <span className="text-grey">
-                          Performance trends over time
+                          New themes added regularly to keep things fresh
                         </span>
                       </li>
                     </ul>
                   </div>
 
                   <div>
-                    <img
-                      src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500"
-                      alt="Analytics dashboard visualization"
-                      className="w-full h-auto rounded-xl shadow-lg"
-                    />
+                    <ThemesSvg />
                   </div>
                 </div>
               </div>
             </div>
-          </RevealOnScroll> */}
+          </RevealOnScroll>
         </div>
       </section>
     </>

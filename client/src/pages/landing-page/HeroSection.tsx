@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import RevealOnScroll from "./RevealOnScroll";
-import Bounce from "./Bounce";
+// import Bounce from "./Bounce";
 
 interface FloatingElementProps {
   children: React.ReactNode;
@@ -75,6 +75,7 @@ const GradientText: React.FC<{ children: React.ReactNode }> = ({
 };
 
 function HeroSection() {
+  const [username, setUSername] = useState("");
   return (
     <>
       {/* Hero Section with Animation */}
@@ -123,59 +124,58 @@ function HeroSection() {
               </h1>
 
               <p className="text-grey text-lg md:text-xl mb-8 max-w-xl">
-                Bundlebit lets you organize and share your links, content, and
-                personality — all in one elegant page called a bundle. Perfect
-                for creators, freelancers, and anyone with something to share.
+                Bundlebit helps you organize and share what makes you you - your
+                personal links to social media, content, and more, which we call{" "}
+                <GradientText>Bits </GradientText> - all in one elegant,
+                customizable page called a <GradientText>Bundle </GradientText>.
+                It’s your digital hub, built for creators, freelancers, and
+                anyone with a story to share.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Bounce delay={0.3}>
-                  <motion.a
-                    href="/b/signup"
-                    className="bg-gradient-to-r from-first-accent to-third-blue text-first-text-color font-medium rounded-lg px-8 py-3.5 text-center relative overflow-hidden group"
-                    whileHover={{
-                      y: -3,
-                      boxShadow:
-                        "0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)",
+                <div className="flex bg-white rounded-lg pl-2 items-center group focus-within:ring-2 focus-within:ring-third-blue">
+                  <span className="text-grey text-sm font-medium">
+                    bundlebit.me/
+                  </span>
+                  <motion.input
+                    placeholder="yourusername"
+                    value={username}
+                    onChange={(e) => {
+                      setUSername(e.target.value);
                     }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <span className="relative z-10">Create Your Bundle</span>
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-third-blue to-first-accent opacity-0 group-hover:opacity-100"
-                      transition={{ duration: 0.5 }}
-                    />
-                  </motion.a>
-                </Bounce>
+                    className="font-medium rounded-lg relative overflow-hidden py-2 bg-white border-none outline-none text-grey text-sm"
+                  />
+                </div>
+                {/* <Bounce delay={0.3}> */}
+                {/* </Bounce> */}
 
-                <Bounce delay={0.5}>
-                  <motion.a
-                    href="#bundles"
-                    className="border border-first-section-divider hover:border-third-blue text-first-text-color font-medium rounded-lg px-8 py-3.5 flex items-center justify-center gap-2 relative overflow-hidden group "
-                    whileHover={{
-                      y: -3,
-                      boxShadow:
-                        "0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)",
+                {/* <Bounce delay={0.5}> */}
+                <motion.a
+                  href={`/b/signup?username=${username}`}
+                  className="bg-third-blue text-first-text-color rounded-3xl flex items-center justify-center gap-2 relative overflow-hidden group px-3 py-3"
+                  whileHover={{
+                    boxShadow:
+                      "0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)",
+                  }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span>Create your Bundle</span>
+                  <motion.div
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{
+                      duration: 1.5,
+                      repeat: Infinity,
+                      repeatType: "reverse",
                     }}
-                    transition={{ duration: 0.2 }}
                   >
-                    <span>See Examples</span>
-                    <motion.div
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                      }}
-                    >
-                      <FaArrowRight className="text-xs" />
-                    </motion.div>
-                    <motion.div
-                      className="absolute inset-0 bg-first-accent/5 opacity-0 group-hover:opacity-100"
-                      transition={{ duration: 0.5 }}
-                    />
-                  </motion.a>
-                </Bounce>
+                    <FaArrowRight className="text-xs" />
+                  </motion.div>
+                  <motion.div
+                    className="absolute inset-0 bg-first-accent/5 opacity-0 group-hover:opacity-100"
+                    transition={{ duration: 0.5 }}
+                  />
+                </motion.a>
+                {/* </Bounce> */}
               </div>
             </RevealOnScroll>
 

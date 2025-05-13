@@ -11,7 +11,7 @@ function Header() {
   return (
     <>
       {/* Header Component */}
-      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-first-section-divider">
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md ">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <div className="flex items-center gap-1">
             <Bounce>
@@ -69,7 +69,7 @@ function Header() {
               }}
               transition={{ duration: 0.2 }}
             >
-              Get Started
+              Get started for free
             </motion.a>
           </div>
 
@@ -86,7 +86,7 @@ function Header() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              className="mobile-menu md:hidden  border-t border-first-section-divider absolute w-full"
+              className="mobile-menu md:hidden border-t border-first-section-divider absolute w-full bg-black"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -113,15 +113,15 @@ function Header() {
                 </a> */}
                 <a
                   href="/b/login"
-                  className="text-first-text-color hover:text-first-accent py-2 transition-colors"
+                  className=" flex justify-center text-first-text-color/80 hover:text-first-text-color transition-colors hover:border-third-blue border-transparent border-2 px-5 py-2.5 rounded-lg "
                 >
-                  Log in
+                  <p>Log in</p>
                 </a>
                 <a
                   href="/b/signup"
                   className="bg-first-accent text-first-text-color font-medium rounded-lg px-5 py-2.5 text-center"
                 >
-                  Get Started
+                  Get started for free
                 </a>
               </div>
             </motion.div>

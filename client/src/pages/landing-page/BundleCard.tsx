@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import defaultAvatar from "../../assets/images/default-avatar.jpeg";
 import { FaLink } from "react-icons/fa";
+import bundlebitLogo from "../../assets/images/logo.png";
 
 function BundleCard(bundle: {
   bundleLink: string;
@@ -11,9 +12,6 @@ function BundleCard(bundle: {
 }) {
   const [isOverLayActive, setIsOverLayActive] = useState(false);
 
-  function toggleOverLay() {
-    setIsOverLayActive(!isOverLayActive);
-  }
   return (
     <>
       <motion.a
@@ -27,18 +25,13 @@ function BundleCard(bundle: {
             "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
         }}
         transition={{ duration: 0.2 }}
-        onMouseEnter={toggleOverLay}
-        onMouseLeave={toggleOverLay}
+        onMouseEnter={() => {
+          setIsOverLayActive(true);
+        }}
+        onMouseLeave={() => {
+          setIsOverLayActive(false);
+        }}
       >
-        {/* <div
-                    className={`h-40 bg-gradient-to-r from-${bundle.gradientFrom} to-${bundle.gradientTo} relative overflow-hidden`}
-                  >
-                    <div className="absolute -bottom-10 left-6">
-                      <div className="w-20 h-20 rounded-full border-4 border-first-card overflow-hidden bg-first-card">
-                        {bundle.userIcon}
-                      </div>
-                    </div>
-                  </div> */}
         <div className="flex flex-col justify-center h-full w-full items-center relative overflow-hidden">
           <div className=" w-full">
             <div className="h-40 overflow-hidden">
@@ -75,13 +68,14 @@ function BundleCard(bundle: {
               isOverLayActive ? "card__overlay--active" : ""
             }`}
           >
-            <p
-              className={`card__overlay-text bg-white text-third-blue p-2 rounded-3xl pr-4 pl-4 ${
+            <div
+              className={`card__overlay-text bg-white text-third-blue p-2 rounded-3xl pr-4 pl-4 flex items-center gap-1 ${
                 isOverLayActive ? "card__overlay--active" : ""
               }`}
             >
-              {bundle.bundleName}
-            </p>
+              <img src={bundlebitLogo} className="h-4 w-4" />
+              <p>{bundle.bundleName}</p>
+            </div>
           </div>
         </div>
       </motion.a>

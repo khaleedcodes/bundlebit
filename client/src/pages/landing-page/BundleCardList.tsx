@@ -3,6 +3,8 @@ import RevealOnScroll from "./RevealOnScroll";
 import BundleCard from "./BundleCard";
 import TrustedBySection from "./TrustedBySection";
 import GetStartedSvg from "./GetStartedSvg";
+import { useState } from "react";
+import { FaArrowRight } from "react-icons/fa";
 
 const bundleCardsData = [
   {
@@ -20,6 +22,8 @@ const bundleCardsData = [
 ];
 
 function BundleCardList() {
+  const [username, setUSername] = useState("");
+
   return (
     <>
       <section id="bundles" className="py-20 md:py-32 relative">
@@ -33,7 +37,7 @@ function BundleCardList() {
                 Featured Bundles
               </span>
               <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-6">
-                See what others have created
+                Featured Bundles
               </h2>
               <p className="text-grey text-lg">
                 Explore these Bundles to get inspired and see what's possible
@@ -88,22 +92,49 @@ function BundleCardList() {
                   Ready to create your own Bundle?
                 </h2>
                 <p className="text-grey text-lg mb-8">
-                  Join thousands of creators and businesses who have simplified
+                  Join hundreds of creators and businesses who have simplified
                   their online presence with Bundlebit.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="flex bg-white rounded-lg pl-2 items-center group focus-within:ring-2 focus-within:ring-third-blue">
+                    <span className="text-grey text-sm font-medium">
+                      bundlebit.me/
+                    </span>
+                    <motion.input
+                      placeholder="yourusername"
+                      value={username}
+                      onChange={(e) => {
+                        setUSername(e.target.value);
+                      }}
+                      className="font-medium rounded-lg relative overflow-hidden py-2 bg-white border-none outline-none text-grey text-sm"
+                    />
+                  </div>
+                  {/* <Bounce delay={0.3}> */}
+                  {/* </Bounce> */}
+
+                  {/* <Bounce delay={0.5}> */}
                   <motion.a
-                    href="/b/signup"
-                    className="bg-first-accent hover:bg-first-accent/90 text-first-text-color font-medium rounded-lg px-8 py-3.5 text-center"
+                    href={`/b/signup?username=${username}`}
+                    className="flex items-center gap-2 bg-first-accent hover:bg-first-accent/90 text-first-text-color font-medium rounded-lg px-8 py-3.5 text-center"
                     whileHover={{
-                      y: -2,
                       boxShadow:
                         "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
                     }}
                     transition={{ duration: 0.2 }}
                   >
-                    Get Started for Free
+                    <span>Create your Bundle</span>
+                    <motion.div
+                      animate={{ x: [0, 5, 0] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                      }}
+                    >
+                      <FaArrowRight className="text-xs" />
+                    </motion.div>
                   </motion.a>
+                  {/* </Bounce> */}
                 </div>
               </RevealOnScroll>
 
