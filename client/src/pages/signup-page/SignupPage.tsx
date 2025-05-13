@@ -1,6 +1,6 @@
 import signupImage from "../../assets/images/signup.png";
 import SignupForm from "./SignupForm";
-import WordMark from "../../components/navbar/WordMark";
+import WordMark from "../../assets/icons/WordMark";
 function SignupPage() {
   return (
     <div className="flex w-full justify-center bg-black">

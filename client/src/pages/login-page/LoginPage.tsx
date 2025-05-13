@@ -1,4 +1,4 @@
-import WordMark from "../../components/navbar/WordMark";
+import WordMark from "../../assets/icons/WordMark";
 import LoginForm from "./LoginForm";
 import loginImage from "../../assets/images/login.png";
 function LoginPage() {
