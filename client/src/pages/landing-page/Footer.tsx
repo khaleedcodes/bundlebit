@@ -8,14 +8,15 @@ function Footer() {
         <div className="absolute top-0 left-0 right-0 h-px bg-first-section-divider"></div>
 
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-            <div>
-              <div className="flex items-center mb-6 gap-1">
-                <img src={bundlebitLogo} className="h-8 w-8" />
-                <WordMark />
-              </div>
-              <p className="text-grey mb-6">One Bundle. Every bit of you.</p>
-              {/* <div className="flex space-x-4">
+          <div className="bg-gradient-to-r from-first-accent/20 to-third-blue/20 rounded-3xl p-8 md:p-12 relative overflow-hidden w-full">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+              <div>
+                <div className="flex items-center mb-6 gap-1">
+                  <img src={bundlebitLogo} className="h-8 w-8" />
+                  <WordMark />
+                </div>
+                <p className="text-grey mb-6">One Bundle. Every bit of you.</p>
+                {/* <div className="flex space-x-4">
                 <a
                   href="#"
                   className="text-grey hover:text-first-text-color transition-colors"
@@ -41,94 +42,95 @@ function Footer() {
                   <FaGithub />
                 </a>
               </div> */}
-            </div>
+              </div>
 
-            <div>
-              <h4 className="font-semibold text-first-text-color mb-4">
-                Product
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="#"
-                    className="text-grey hover:text-first-text-color transition-colors"
-                  >
-                    Features
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-grey hover:text-first-text-color transition-colors"
-                  >
-                    Templates
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-grey hover:text-first-text-color transition-colors"
-                  >
-                    Examples
-                  </a>
-                </li>
-              </ul>
-            </div>
+              <div>
+                <h4 className="font-semibold text-first-text-color mb-4">
+                  Product
+                </h4>
+                <ul className="space-y-3">
+                  <li>
+                    <a
+                      href="#"
+                      className="text-grey hover:text-first-text-color transition-colors"
+                    >
+                      Features
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-grey hover:text-first-text-color transition-colors"
+                    >
+                      Templates
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-grey hover:text-first-text-color transition-colors"
+                    >
+                      Examples
+                    </a>
+                  </li>
+                </ul>
+              </div>
 
-            <div>
-              <h4 className="font-semibold text-first-text-color mb-4">
-                Resources
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="#"
-                    className="text-grey hover:text-first-text-color transition-colors"
-                  >
-                    Blog
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-grey hover:text-first-text-color transition-colors"
-                  >
-                    Support
-                  </a>
-                </li>
-              </ul>
-            </div>
+              <div>
+                <h4 className="font-semibold text-first-text-color mb-4">
+                  Resources
+                </h4>
+                <ul className="space-y-3">
+                  <li>
+                    <a
+                      href="#"
+                      className="text-grey hover:text-first-text-color transition-colors"
+                    >
+                      Blog
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-grey hover:text-first-text-color transition-colors"
+                    >
+                      Support
+                    </a>
+                  </li>
+                </ul>
+              </div>
 
-            <div>
-              <h4 className="font-semibold text-first-text-color mb-4">
-                Company
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <a
-                    href="#"
-                    className="text-grey hover:text-first-text-color transition-colors"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-grey hover:text-first-text-color transition-colors"
-                  >
-                    Privacy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="text-grey hover:text-first-text-color transition-colors"
-                  >
-                    Terms
-                  </a>
-                </li>
-              </ul>
+              <div>
+                <h4 className="font-semibold text-first-text-color mb-4">
+                  Company
+                </h4>
+                <ul className="space-y-3">
+                  <li>
+                    <a
+                      href="#"
+                      className="text-grey hover:text-first-text-color transition-colors"
+                    >
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-grey hover:text-first-text-color transition-colors"
+                    >
+                      Privacy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      className="text-grey hover:text-first-text-color transition-colors"
+                    >
+                      Terms
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 

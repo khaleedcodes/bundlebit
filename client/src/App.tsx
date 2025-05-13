@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/error-page/ErrorPage";
-import PageLayout from "./pages/PageLayout";
 import LoginPage from "./pages/login-page/LoginPage";
 import SignupPage from "./pages/signup-page/SignupPage";
 import DashboardPage from "./pages/dashboard-page/DashboardPage";
@@ -17,11 +16,7 @@ import LandingPage from "./pages/landing-page/LandingPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <PageLayout>
-        <LandingPage />
-      </PageLayout>
-    ),
+    element: <LandingPage />,
     errorElement: <ErrorPage />,
   },
   {
@@ -61,7 +56,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <AuthProvider>
-        <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </AuthProvider>
   );
 }

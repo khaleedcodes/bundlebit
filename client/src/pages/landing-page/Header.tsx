@@ -30,28 +30,6 @@ function Header() {
               <WordMark />
             </motion.span>
           </div>
-
-          {/* <nav className="hidden md:flex items-center space-x-8">
-            <a
-              href="#features"
-              className="text-first-text-color/80 hover:text-first-text-color transition-colors"
-            >
-              Features
-            </a>
-            <a
-              href="#bundles"
-              className="text-first-text-color/80 hover:text-first-text-color transition-colors"
-            >
-              Examples
-            </a>
-            <a
-              href="#pricing"
-              className="text-first-text-color/80 hover:text-first-text-color transition-colors"
-            >
-              Pricing
-            </a>
-          </nav> */}
-
           <div className="hidden md:flex items-center space-x-4">
             <a
               href="/b/login"
@@ -93,24 +71,6 @@ function Header() {
               transition={{ duration: 0.2 }}
             >
               <div className="flex flex-col py-4 px-6 space-y-4">
-                {/* <a
-                  href="#features"
-                  className="text-first-text-color hover:text-first-accent py-2 transition-colors"
-                >
-                  Features
-                </a>
-                <a
-                  href="#bundles"
-                  className="text-first-text-color hover:text-first-accent py-2 transition-colors"
-                >
-                  Examples
-                </a>
-                <a
-                  href="#pricing"
-                  className="text-first-text-color hover:text-first-accent py-2 transition-colors"
-                >
-                  Pricing
-                </a> */}
                 <a
                   href="/b/login"
                   className=" flex justify-center text-first-text-color/80 hover:text-first-text-color transition-colors hover:border-third-blue border-transparent border-2 px-5 py-2.5 rounded-lg "
@@ -119,7 +79,7 @@ function Header() {
                 </a>
                 <a
                   href="/b/signup"
-                  className="bg-first-accent text-first-text-color font-medium rounded-lg px-5 py-2.5 text-center"
+                  className="bg-third-blue text-first-text-color font-medium rounded-lg px-5 py-2.5 text-center"
                 >
                   Get started for free
                 </a>

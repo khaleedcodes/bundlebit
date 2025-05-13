@@ -116,18 +116,18 @@ function HeroSection() {
               </span>
 
               <h1 className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-                One <GradientText>Bundle </GradientText>
+                One <GradientText>bundle </GradientText>
                 <span className="text-third-blue">.</span> Every{" "}
                 <GradientText>bit </GradientText> of you
                 <span className="text-third-blue">.</span>
                 {/* <br className="hidden md:block" /> */}
               </h1>
 
-              <p className="text-grey text-lg md:text-xl mb-8 max-w-xl">
+              <p className="text-grey text-base md:text-lg mb-8 max-w-xl">
                 Bundlebit helps you organize and share what makes you you - your
                 personal links to social media, content, and more, which we call{" "}
-                <GradientText>Bits </GradientText> - all in one elegant,
-                customizable page called a <GradientText>Bundle </GradientText>.
+                <GradientText>bits </GradientText> - all in one elegant,
+                customizable page called a <GradientText>bundle </GradientText>.
                 It’s your digital hub, built for creators, freelancers, and
                 anyone with a story to share.
               </p>
@@ -146,20 +146,16 @@ function HeroSection() {
                     className="font-medium rounded-lg relative overflow-hidden py-2 bg-white border-none outline-none text-grey text-sm"
                   />
                 </div>
-                {/* <Bounce delay={0.3}> */}
-                {/* </Bounce> */}
-
-                {/* <Bounce delay={0.5}> */}
                 <motion.a
                   href={`/b/signup?username=${username}`}
-                  className="bg-third-blue text-first-text-color rounded-3xl flex items-center justify-center gap-2 relative overflow-hidden group px-3 py-3"
+                  className="bg-third-blue text-first-text-color rounded-3xl flex items-center justify-center gap-2 relative overflow-hidden group px-6 py-3"
                   whileHover={{
                     boxShadow:
                       "0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)",
                   }}
                   transition={{ duration: 0.2 }}
                 >
-                  <span>Create your Bundle</span>
+                  <span className="font-medium">Create your Bundle</span>
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
                     transition={{
@@ -175,7 +171,6 @@ function HeroSection() {
                     transition={{ duration: 0.5 }}
                   />
                 </motion.a>
-                {/* </Bounce> */}
               </div>
             </RevealOnScroll>
 

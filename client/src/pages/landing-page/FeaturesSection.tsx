@@ -105,147 +105,139 @@ function FeaturesSection() {
           </svg>
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <RevealOnScroll>
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <motion.span
-                className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-first-accent/20 text-first-accent mb-6"
-                whileHover={{
-                  scale: 1.05,
-                  backgroundColor: "rgba(100, 108, 255, 0.3)",
-                }}
-              >
+        <div className="container mx-auto px-6 relative z-10 ">
+          <div className="bg-gradient-to-r from-first-accent/20 to-third-blue/20 rounded-3xl p-6">
+            <RevealOnScroll>
+              <div className="text-center max-w-3xl mx-auto mb-16">
                 <motion.span
-                  className="w-2 h-2 bg-third-blue rounded-full mr-2"
-                  animate={{
-                    scale: [1, 1.5, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                ></motion.span>
-                Smart Features
-              </motion.span>
-
-              <motion.h2
-                className="font-poppins font-bold text-3xl md:text-4xl mb-6 relative"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                Everything you need to{" "}
-                <span className="relative inline-block">
-                  <span className="relative z-10">organize</span>
-                  <motion.span
-                    className="absolute bottom-2 left-0 right-0 h-3 bg-first-accent/20 -z-10"
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 1, delay: 1 }}
-                  ></motion.span>
-                </span>{" "}
-                and
-                <span className="relative inline-block ml-2">
-                  <span className="relative z-10">share</span>
-                  <motion.span
-                    className="absolute bottom-2 left-0 right-0 h-3 bg-third-blue/20 -z-10"
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 1, delay: 1.3 }}
-                  ></motion.span>
-                </span>{" "}
-                your online presence
-              </motion.h2>
-
-              {/* <motion.p
-                className="text-grey text-lg"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.4 }}
-              >
-                A smart, clean alternative to complicated bio link tools. Simple
-                yet powerful.
-              </motion.p> */}
-            </div>
-          </RevealOnScroll>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
-            {featuresData.map((feature, index) => (
-              <RevealOnScroll key={index} delay={index * 0.1}>
-                <motion.div
-                  className={`bg-gradient-to-b from-first-card to-first-card/60 p-8 rounded-xl border border-first-section-divider/30 relative overflow-hidden group`}
+                  className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-first-accent/20 text-first-accent mb-6"
                   whileHover={{
-                    y: -8,
-                    boxShadow:
-                      "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)",
+                    scale: 1.05,
+                    backgroundColor: "rgba(100, 108, 255, 0.3)",
                   }}
-                  transition={{ duration: 0.3 }}
                 >
-                  {/* Accent corner */}
-                  <motion.div
-                    className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-${feature.accentColor}/40 to-transparent -mr-8 -mt-8 rounded-full blur-lg group-hover:from-${feature.accentColor}/60`}
-                    transition={{ duration: 0.3 }}
-                  />
-
-                  {/* Icon container with bounce animation */}
-                  <motion.div
-                    className={`relative mb-6 inline-flex items-center justify-center h-14 w-14 rounded-lg bg-gradient-to-br from-${feature.accentColor}/20 to-${feature.accentColor}/5 text-${feature.accentColor} text-2xl`}
-                    whileHover={{
-                      scale: 1.1,
-                      rotate: [0, -5, 5, 0],
+                  <motion.span
+                    className="w-2 h-2 bg-third-blue rounded-full mr-2"
+                    animate={{
+                      scale: [1, 1.5, 1],
                     }}
-                    transition={{ duration: 0.5 }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  ></motion.span>
+                  Features
+                </motion.span>
+
+                <motion.h2
+                  className="font-poppins font-bold text-3xl md:text-4xl mb-6 relative"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  Everything you need to{" "}
+                  <span className="relative inline-block">
+                    <span className="relative z-10">organize</span>
+                    <motion.span
+                      className="absolute bottom-2 left-0 right-0 h-3 bg-first-accent/20 -z-10"
+                      initial={{ width: 0 }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 1, delay: 1 }}
+                    ></motion.span>
+                  </span>{" "}
+                  and
+                  <span className="relative inline-block ml-2">
+                    <span className="relative z-10">share</span>
+                    <motion.span
+                      className="absolute bottom-2 left-0 right-0 h-3 bg-third-blue/20 -z-10"
+                      initial={{ width: 0 }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 1, delay: 1.3 }}
+                    ></motion.span>
+                  </span>{" "}
+                  your online presence
+                </motion.h2>
+              </div>
+            </RevealOnScroll>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+              {featuresData.map((feature, index) => (
+                <RevealOnScroll key={index} delay={index * 0.1}>
+                  <motion.div
+                    className={`bg-gradient-to-b from-first-card to-first-card/60 p-8 rounded-xl border border-first-section-divider/30 relative overflow-hidden group`}
+                    whileHover={{
+                      y: -8,
+                      boxShadow:
+                        "0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)",
+                    }}
+                    transition={{ duration: 0.3 }}
                   >
+                    {/* Accent corner */}
                     <motion.div
-                      animate={{
-                        y: [0, -3, 0],
+                      className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-${feature.accentColor}/40 to-transparent -mr-8 -mt-8 rounded-full blur-lg group-hover:from-${feature.accentColor}/60`}
+                      transition={{ duration: 0.3 }}
+                    />
+
+                    {/* Icon container with bounce animation */}
+                    <motion.div
+                      className={`relative mb-6 inline-flex items-center justify-center h-14 w-14 rounded-lg bg-gradient-to-br from-${feature.accentColor}/20 to-${feature.accentColor}/5 text-${feature.accentColor} text-2xl`}
+                      whileHover={{
+                        scale: 1.1,
+                        rotate: [0, -5, 5, 0],
                       }}
-                      transition={{
-                        duration: 2 + index,
-                        repeat: Infinity,
-                        repeatType: "mirror",
-                        ease: "easeInOut",
-                      }}
+                      transition={{ duration: 0.5 }}
                     >
-                      <feature.featureIcon />
+                      <motion.div
+                        animate={{
+                          y: [0, -3, 0],
+                        }}
+                        transition={{
+                          duration: 2 + index,
+                          repeat: Infinity,
+                          repeatType: "mirror",
+                          ease: "easeInOut",
+                        }}
+                      >
+                        <feature.featureIcon />
+                      </motion.div>
+                    </motion.div>
+
+                    <h3
+                      className={`font-poppins font-semibold text-xl mb-3 group-hover:text-${feature.accentColor} transition-colors`}
+                    >
+                      {feature.featureHeader}
+                    </h3>
+
+                    <p className="text-grey group-hover:text-grey/90 transition-colors">
+                      {feature.featureDescription}
+                    </p>
+
+                    {/* Animated arrow on hover */}
+                    <motion.div
+                      className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100"
+                      initial={{ scale: 0 }}
+                      whileHover={{ scale: 1.2 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div
+                        className={`flex items-center justify-center h-8 w-8 rounded-full bg-${feature.accentColor}/10`}
+                      >
+                        <FaArrowRight
+                          className={`text-${feature.accentColor} text-xs`}
+                        />
+                      </div>
                     </motion.div>
                   </motion.div>
-
-                  <h3
-                    className={`font-poppins font-semibold text-xl mb-3 group-hover:text-${feature.accentColor} transition-colors`}
-                  >
-                    {feature.featureHeader}
-                  </h3>
-
-                  <p className="text-grey group-hover:text-grey/90 transition-colors">
-                    {feature.featureDescription}
-                  </p>
-
-                  {/* Animated arrow on hover */}
-                  <motion.div
-                    className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100"
-                    initial={{ scale: 0 }}
-                    whileHover={{ scale: 1.2 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <div
-                      className={`flex items-center justify-center h-8 w-8 rounded-full bg-${feature.accentColor}/10`}
-                    >
-                      <FaArrowRight
-                        className={`text-${feature.accentColor} text-xs`}
-                      />
-                    </div>
-                  </motion.div>
-                </motion.div>
-              </RevealOnScroll>
-            ))}
+                </RevealOnScroll>
+              ))}
+            </div>
           </div>
 
           <RevealOnScroll delay={0.3}>
             <div className="mt-20 md:mt-32">
-              <div className="bg-first-card rounded-2xl border border-first-section-divider overflow-hidden">
-                <div className="p-6 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div className="bg-gradient-to-r from-first-accent/20 to-third-blue/20 rounded-3xl p-8 md:p-12 relative overflow-hidden w-full">
+                <div className="md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                   <div>
                     <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-first-accent/20 text-first-accent mb-6">
                       <span className="w-2 h-2 bg-third-blue rounded-full mr-2"></span>

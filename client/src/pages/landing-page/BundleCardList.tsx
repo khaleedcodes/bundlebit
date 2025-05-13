@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import RevealOnScroll from "./RevealOnScroll";
 import BundleCard from "./BundleCard";
-import TrustedBySection from "./TrustedBySection";
+// import TrustedBySection from "./TrustedBySection";
 import GetStartedSvg from "./GetStartedSvg";
 import { useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
+import FaqSection from "./FaqSection";
 
 const bundleCardsData = [
   {
@@ -26,40 +27,43 @@ function BundleCardList() {
 
   return (
     <>
-      <section id="bundles" className="py-20 md:py-32 relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-first-section-divider"></div>
+      <section
+        id="bundles"
+        className="py-20 md:py-32 relative px-6 container mx-auto"
+      >
+        {/* <div className="absolute top-0 left-0 right-0 h-px bg-first-section-divider"></div> */}
+        <div className="bg-gradient-to-r from-first-accent/20 to-third-blue/20 rounded-3xl p-8 md:p-12 relative overflow-hidden w-full">
+          <div className="container mx-auto">
+            <RevealOnScroll>
+              <div className="text-center max-w-3xl mx-auto mb-16">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-first-accent/20 text-first-accent mb-6">
+                  <span className="w-2 h-2 bg-third-blue rounded-full mr-2"></span>
+                  Featured Bundles
+                </span>
+                <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-6">
+                  Featured Bundles
+                </h2>
+                <p className="text-grey text-lg">
+                  Explore these Bundles to get inspired and see what's possible
+                  with Bundlebit.
+                </p>
+              </div>
+            </RevealOnScroll>
 
-        <div className="container mx-auto px-6">
-          <RevealOnScroll>
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-first-accent/20 text-first-accent mb-6">
-                <span className="w-2 h-2 bg-third-blue rounded-full mr-2"></span>
-                Featured Bundles
-              </span>
-              <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-6">
-                Featured Bundles
-              </h2>
-              <p className="text-grey text-lg">
-                Explore these Bundles to get inspired and see what's possible
-                with Bundlebit.
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {bundleCardsData.map((bundle, index) => (
+                <RevealOnScroll key={index} delay={index * 0.1}>
+                  <BundleCard
+                    bundleLink={bundle.bundleLink}
+                    bundleName={bundle.bundleName}
+                    name={bundle.name}
+                    tags={bundle.tags}
+                  />
+                </RevealOnScroll>
+              ))}
             </div>
-          </RevealOnScroll>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {bundleCardsData.map((bundle, index) => (
-              <RevealOnScroll key={index} delay={index * 0.1}>
-                <BundleCard
-                  bundleLink={bundle.bundleLink}
-                  bundleName={bundle.bundleName}
-                  name={bundle.name}
-                  tags={bundle.tags}
-                />
-              </RevealOnScroll>
-            ))}
-          </div>
-
-          {/* <RevealOnScroll delay={0.4}>
+            {/* <RevealOnScroll delay={0.4}>
             <div className="text-center mt-12">
               <motion.a
                 href="#"
@@ -76,14 +80,15 @@ function BundleCardList() {
               </motion.a>
             </div>
           </RevealOnScroll> */}
+          </div>
+          {/* <TrustedBySection /> */}
         </div>
-        <TrustedBySection />
       </section>
+      <FaqSection />
 
       {/* CTA Section */}
       <section className="py-20 md:py-32 relative">
         <div className="absolute top-0 left-0 right-0 h-px bg-first-section-divider"></div>
-
         <div className="container mx-auto px-6">
           <div className="bg-gradient-to-r from-first-accent/20 to-third-blue/20 rounded-3xl p-8 md:p-12 relative overflow-hidden">
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -122,7 +127,7 @@ function BundleCardList() {
                     }}
                     transition={{ duration: 0.2 }}
                   >
-                    <span>Create your Bundle</span>
+                    <span className="font-medium">Create your Bundle</span>
                     <motion.div
                       animate={{ x: [0, 5, 0] }}
                       transition={{
