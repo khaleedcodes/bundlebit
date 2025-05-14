@@ -81,7 +81,6 @@ const PublicBundlePage = () => {
       </div>
     );
   }
-  bundle.theme = "brutalist"
   // Theme switcher logic
   switch (bundle.theme) {
     case "absolute":
