@@ -74,7 +74,22 @@ interface bitType {
 interface bitItemProps extends bitType {
   getBits: () => void;
 }
+export interface DemoBitType {
+  title: string;
+  url: string;
+  icon?: string;
+  isPinned: boolean;
+  order: number;
+}
+interface DemoBundleType {
+  bundleName: string;
+  displayName: string;
+  bio?: string;
+  bits: DemoBitType[];
+  theme?: string;
+}
 export type {
+  DemoBundleType,
   bitType,
   bitItemProps,
   TabType,

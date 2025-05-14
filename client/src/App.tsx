@@ -12,12 +12,17 @@ import "./styles/styles.css";
 import PublicBundlePage from "./pages/public-bundle-page/PublicBundlePage";
 import ThemeSelectorPage from "./pages/public-bundle-page/ThemeSelectorPage";
 import LandingPage from "./pages/landing-page/LandingPage";
+import DemoBundlePreview from "./pages/landing-page/demo-section/DemoBundlePreview";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LandingPage />,
     errorElement: <ErrorPage />,
+  },
+    {
+    path: "/b/demo",
+    element: <DemoBundlePreview />,
   },
   {
     path: "/b/themes",
