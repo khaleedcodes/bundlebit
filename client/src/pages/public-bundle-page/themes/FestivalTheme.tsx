@@ -34,7 +34,7 @@ const FestivalTheme: React.FC<FestivalThemeProps> = ({ bundle }) => {
   
   useEffect(() => {
     const colors = ['#FF5252', '#FF4081', '#E040FB', '#7C4DFF', '#536DFE', '#448AFF', '#40C4FF', '#18FFFF', '#64FFDA', '#69F0AE', '#B2FF59', '#EEFF41', '#FFFF00', '#FFD740', '#FFAB40', '#FF6E40'];
-    const shapes = ['rounded-none', 'rounded-full', 'rotate-45'];
+    // const shapes = ['rounded-none', 'rounded-full', 'rotate-45'];
     
     const confettiElements: JSX.Element[] = [];
     for (let i = 0; i < 60; i++) {
