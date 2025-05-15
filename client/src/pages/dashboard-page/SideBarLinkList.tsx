@@ -10,7 +10,7 @@ import { useAuth } from "../../context/AuthContext";
 function SideBarLinkList({ switchTab }: SideBarLinkListProps) {
   const { logout } = useAuth();
   return (
-    <div className="gap-4 flex flex-col max-sm:flex-row max-sm:items-center">
+    <div className="gap-4 flex flex-col max-md:flex-row max-md:items-center">
       {sideBarLinks.map(({ tabName }, index) => {
         return (
           <SideBarLink tabName={tabName} switchTab={switchTab} key={index} />

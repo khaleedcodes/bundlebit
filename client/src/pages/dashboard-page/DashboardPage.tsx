@@ -11,11 +11,11 @@ function DashboardPage() {
     setTab(tabName);
   }
   return (
-    <div className="flex w-full max-sm:flex-col bg-first-primary text-second-primary min-h-screen">
-      <div className="border-b border-b-first-section-divider sm:hidden">
+    <div className="flex w-full max-md:flex-col bg-first-primary text-second-primary min-h-screen">
+      <div className="border-b border-b-first-section-divider md:hidden">
         <TopBar switchTab={switchTab} />
       </div>
-      <div className="border-r border-r-first-section-divider max-sm:hidden">
+      <div className="border-r border-r-first-section-divider max-md:hidden">
         <SideBar switchTab={switchTab} />
       </div>
       <div className="w-full p-10 max-sm:p-4">
