@@ -13,7 +13,7 @@ interface Bit {
 
 const BitManager = () => {
   const [loading, setLoading] = useState(false);
-  // const [message, setMessage] = useState("");
+  const [message, setMessage] = useState("");
 
   const { token } = useAuth();
 
@@ -35,8 +35,15 @@ const BitManager = () => {
     if (token) getBits();
   }, [token]);
 
+  const urlPattern =
+    /^(https?:\/\/)([\w-]+\.)+[\w-]{2,}(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$/;
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!urlPattern.test(newBit.url)) {
+      setMessage("Please enter a valid URL");
+      return;
+    }
     setLoading(true);
     try {
       const res = await fetch("http://localhost:5000/api/bundles/me/bits", {
@@ -47,18 +54,29 @@ const BitManager = () => {
         },
         body: JSON.stringify(newBit),
       });
+      const data = await res.json();
       if (res.ok) {
         setNewBit({ title: "", url: "" });
         getBits();
       }
-      // setMessage(data.message);
+      setMessage(data.message);
       setLoading(false);
     } catch (error) {
       console.error(error);
-      // setMessage("Something went wrong. Please try again.");
+      setMessage("Something went wrong. Please try again.");
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (!message) return;
+
+    const timeout = setTimeout(() => {
+      setMessage("");
+    }, 3000);
+
+    return () => clearTimeout(timeout);
+  }, [message]);
 
   return (
     <div className="gap-8 flex-col flex bg-first-card p-6 rounded-2xl">
@@ -79,6 +97,11 @@ const BitManager = () => {
           className="w-full mt-1 rounded-2xl p-4 bg-[#1c1d23]"
           required
         />
+        {message && (
+          <div className="text-third-blue text-center transition-opacity duration-300">
+            {message}
+          </div>
+        )}
 
         <button
           disabled={loading}
