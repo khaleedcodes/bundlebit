@@ -9,6 +9,12 @@ import FaqSection from "./FaqSection";
 
 const bundleCardsData = [
   {
+    bundleLink: "https://bundlebit.me/bundlebit",
+    bundleName: "/bundlebit",
+    name: "Bundlebit",
+    tags: ["Link-In-Bio", "Every Bit"],
+  },
+  {
     bundleLink: "https://bundlebit.me/nimorcreative",
     bundleName: "/nimorcreative",
     name: "Nimor",
