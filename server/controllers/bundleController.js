@@ -53,7 +53,7 @@ async function addBitToBundle(req, res) {
     bundle.bits.push({ title, url });
     await bundle.save();
 
-    res.status(201).json({ message: "Bundle created with bit" });
+    res.status(201).json({ message: "Bit added to your Bundle" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Failed to add link to bundle" });
@@ -97,7 +97,7 @@ async function deleteBitFromBundle(req, res) {
     bundle.bits.pull({ _id: bitId });
     await bundle.save();
 
-    res.status(200).json({ message: "bit removed" });
+    res.status(200).json({ message: "Bit removed" });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Server error while deleting bit" });
