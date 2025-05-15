@@ -84,7 +84,7 @@ const DemoBundlePreview = () => {
 
   return (
     <div
-      className="relative w-full h-full min-h-[600px] perspective-1000"
+      className="relative w-full h-full min-h-[600px] perspective-1000 cursor-crosshair"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
