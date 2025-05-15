@@ -88,10 +88,9 @@ const DemoBundlePreview = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* The rotating 3D container */}
       <div
         className={`
-          w-full h-full transform-style-3d transition-transform duration-500
+          w-full h-full transform-style-3d transition-transform duration-500 pointer-events-auto
           ${
             isTransitioning && transitionDirection === "out"
               ? "animate-spin-out-right"
@@ -100,9 +99,22 @@ const DemoBundlePreview = () => {
               : ""
           }
         `}
+        style={{
+          // Ensure links remain clickable during transitions
+          pointerEvents: "auto",
+          // Position absolutely to prevent 3D transform from breaking link clicks
+          position: "relative",
+          zIndex: 10,
+        }}
       >
-        {/* Current component */}
-        <div className="w-full h-full backface-hidden">
+        {/* Current component - FIX: Added pointer-events-auto and z-index */}
+        <div
+          className="w-full h-full backface-hidden pointer-events-auto"
+          style={{
+            position: "relative",
+            zIndex: 20,
+          }}
+        >
           {components[currentIndex]}
         </div>
       </div>

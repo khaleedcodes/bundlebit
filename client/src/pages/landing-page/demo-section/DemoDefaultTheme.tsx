@@ -112,6 +112,16 @@ function DemoDefaultTheme() {
     rotateY.set(0);
   };
 
+  // Fix: Handle click events on link elements
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    url: string
+  ) => {
+    e.preventDefault();
+    console.log(`Link clicked: ${url}`);
+    window.location.href = url;
+  };
+
   return (
     <div className="min-h-[75vh] flex items-center justify-center text-white font-['Inter',system-ui,sans-serif]">
       <div
@@ -122,7 +132,12 @@ function DemoDefaultTheme() {
         onMouseLeave={handleMouseLeave}
       >
         <motion.div
-          style={{ transform: combinedTransform }}
+          style={{
+            transform: combinedTransform,
+            pointerEvents: "auto", // Fix: Ensure pointer events are enabled
+            position: "relative", // Fix: Set position to create a new stacking context
+            zIndex: 30, // Fix: Make sure it's above other elements
+          }}
           className="will-change-transform"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -222,8 +237,14 @@ function DemoDefaultTheme() {
                   key={index}
                   href={bit.url}
                   target="_self"
-                  // rel="noopener noreferrer"
-                  className="group flex items-center gap-3 w-full px-6 py-4 rounded-xl bg-[#0f0f11]/80 border border-gray-800/50 hover:border-indigo-500/50 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all duration-300 text-white font-medium shadow-md hover:shadow-lg hover:shadow-indigo-500/10 transform hover:-translate-y-0.5"
+                  onClick={(e) => handleLinkClick(e, bit.url)} // Fix: Added explicit click handler
+                  className="group flex items-center gap-3 w-full px-6 py-4 rounded-xl bg-[#0f0f11]/80 border border-gray-800/50 hover:border-indigo-500/50 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all duration-300 text-white font-medium shadow-md hover:shadow-lg hover:shadow-indigo-500/10 transform hover:-translate-y-0.5 cursor-pointer"
+                  // Fix: Added inline styles to ensure clickability
+                  style={{
+                    position: "relative",
+                    zIndex: 50,
+                    pointerEvents: "auto",
+                  }}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index + 0.5 }}
@@ -264,6 +285,12 @@ function DemoDefaultTheme() {
                 <a
                   href="https://bundlebit.me/"
                   className="text-indigo-400 hover:text-indigo-300 transition-colors"
+                  style={{
+                    position: "relative",
+                    zIndex: 50,
+                    pointerEvents: "auto",
+                  }}
+                  onClick={(e) => handleLinkClick(e, "https://bundlebit.me/")}
                 >
                   Bundlebit
                 </a>
