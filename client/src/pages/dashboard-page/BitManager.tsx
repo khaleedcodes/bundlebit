@@ -72,7 +72,7 @@ const BitManager = () => {
           required
         />
         <input
-          type="url"
+          type="text"
           placeholder="URL"
           value={newBit.url}
           onChange={(e) => setNewBit({ ...newBit, url: e.target.value })}
