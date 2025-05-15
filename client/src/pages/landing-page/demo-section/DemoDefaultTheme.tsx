@@ -4,38 +4,27 @@ import defaultAvatar from "../../../assets/images/default-avatar.jpeg";
 
 // All data in a single file as requested
 const demoBundle = {
-  displayName: "Kai Moreno",
-  bundleName: "kaimoreno",
+  displayName: "Bundlebit",
+  bundleName: "Bundlebit",
   profilePicture: defaultAvatar,
-  bio: "Freelance developer & indie hacker. Building cool stuff on the internet.",
+  bio: "Simplify your link management",
   bits: [
-    {
-      title: "My Projects",
-      url: "#",
-    },
-    {
-      title: "GitHub",
-      url: "#",
-    },
-    {
-      title: "YouTube Channel",
-      url: "#",
-    },
-    {
-      title: "X (Twitter)",
-      url: "#",
-    },
+    { title: "Features", url: "/features" },
+    { title: "Pricing", url: "/pricing" },
+    { title: "Docs", url: "/docs" },
+    { title: "Blog", url: "/blog" },
+    { title: "Contact Us", url: "/contact" },
   ],
 };
 
 function DemoDefaultTheme() {
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  
+
   // Motion values for x and y rotation
   const rotateX = useMotionValue(0);
   const rotateY = useMotionValue(0);
-  
+
   // Motion values for idle animation
   const idleY = useMotionValue(0);
   const idleRotate = useMotionValue(0);
@@ -46,7 +35,10 @@ function DemoDefaultTheme() {
   const springRotateX = useSpring(rotateX, springConfig);
   const springRotateY = useSpring(rotateY, springConfig);
   const springIdleY = useSpring(idleY, { damping: 15, stiffness: 100 });
-  const springIdleRotate = useSpring(idleRotate, { damping: 15, stiffness: 100 });
+  const springIdleRotate = useSpring(idleRotate, {
+    damping: 15,
+    stiffness: 100,
+  });
   const springIdleScale = useSpring(idleScale, { damping: 15, stiffness: 100 });
 
   // Parameters for the 3D effect
@@ -57,20 +49,22 @@ function DemoDefaultTheme() {
   // Transform values for the card when hovering
   const hoverTransform = useTransform(
     [springRotateX, springRotateY],
-    ([latestRotateX, latestRotateY]) => 
-      `perspective(${perspective}px) rotateX(${latestRotateX}deg) rotateY(${latestRotateY}deg) scale(${isHovering ? scale : 1})`
+    ([latestRotateX, latestRotateY]) =>
+      `perspective(${perspective}px) rotateX(${latestRotateX}deg) rotateY(${latestRotateY}deg) scale(${
+        isHovering ? scale : 1
+      })`
   );
 
   // Transform values for idle animation when not hovering
   const idleTransform = useTransform(
     [springIdleY, springIdleRotate, springIdleScale],
-    ([y, rotate, scale]) => 
+    ([y, rotate, scale]) =>
       `perspective(${perspective}px) translateY(${y}px) rotate(${rotate}deg) scale(${scale})`
   );
 
   // Combined transform - use hover transform when hovering, otherwise use idle animation
-  const combinedTransform = useTransform(
-    () => isHovering ? hoverTransform.get() : idleTransform.get()
+  const combinedTransform = useTransform(() =>
+    isHovering ? hoverTransform.get() : idleTransform.get()
   );
 
   // Idle animation
@@ -80,10 +74,10 @@ function DemoDefaultTheme() {
       const idleAnimationInterval = setInterval(() => {
         // Subtle vertical bobbing
         idleY.set(Math.sin(Date.now() / 1000) * 5);
-        
+
         // Very subtle rotation
         idleRotate.set(Math.sin(Date.now() / 1500) * 1);
-        
+
         // Subtle scale pulsing
         idleScale.set(1 + Math.sin(Date.now() / 2000) * 0.01);
       }, 50);
@@ -94,17 +88,17 @@ function DemoDefaultTheme() {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current || !isHovering) return;
-    
+
     const bounds = containerRef.current.getBoundingClientRect();
-    
+
     // Calculate mouse position relative to card center
     const mouseX = e.clientX - bounds.left - bounds.width / 2;
     const mouseY = e.clientY - bounds.top - bounds.height / 2;
-    
+
     // Calculate rotation values based on mouse position
     const rotateYValue = (mouseX / bounds.width) * maxTilt * 2;
     const rotateXValue = -((mouseY / bounds.height) * maxTilt * 2);
-    
+
     rotateX.set(rotateXValue);
     rotateY.set(rotateYValue);
   };
@@ -121,7 +115,7 @@ function DemoDefaultTheme() {
 
   return (
     <div className="min-h-[75vh] flex items-center justify-center text-white font-['Inter',system-ui,sans-serif]">
-      <div 
+      <div
         ref={containerRef}
         className="w-full max-w-[370px] mx-auto"
         onMouseMove={handleMouseMove}
@@ -137,7 +131,7 @@ function DemoDefaultTheme() {
         >
           <div className="bg-gradient-to-b from-[#1a1a1d]/80 to-[#1a1a1d] backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-gray-800/80 relative overflow-hidden">
             {/* Animated background blobs */}
-            <motion.div 
+            <motion.div
               className="absolute -top-24 -right-24 w-48 h-48 bg-indigo-600/20 rounded-full blur-3xl"
               animate={{
                 opacity: [0.2, 0.3, 0.2],
@@ -146,10 +140,10 @@ function DemoDefaultTheme() {
               transition={{
                 duration: 8,
                 repeat: Infinity,
-                ease: "easeInOut"
+                ease: "easeInOut",
               }}
             ></motion.div>
-            <motion.div 
+            <motion.div
               className="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl"
               animate={{
                 opacity: [0.2, 0.3, 0.2],
@@ -159,13 +153,13 @@ function DemoDefaultTheme() {
                 duration: 8,
                 repeat: Infinity,
                 ease: "easeInOut",
-                delay: 2
+                delay: 2,
               }}
             ></motion.div>
 
             <div className="relative flex flex-col items-center text-center z-10">
               {/* Profile image with animated gradient border */}
-              <motion.div 
+              <motion.div
                 className="group relative"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -175,7 +169,7 @@ function DemoDefaultTheme() {
                   alt={demoBundle.displayName}
                   className="w-28 h-28 rounded-full object-cover shadow-lg border-2 border-indigo-500/70 p-[2px] bg-[#0f0f11] z-10 relative"
                 />
-                <motion.div 
+                <motion.div
                   className="absolute inset-0 rounded-full bg-gradient-to-br from-indigo-400 via-indigo-500 to-purple-600 blur-[2px] opacity-70 group-hover:opacity-100"
                   animate={{
                     rotate: [0, 360],
@@ -183,13 +177,13 @@ function DemoDefaultTheme() {
                   transition={{
                     duration: 20,
                     repeat: Infinity,
-                    ease: "linear"
+                    ease: "linear",
                   }}
                 ></motion.div>
               </motion.div>
 
               {/* Name and bio with staggered fade-in */}
-              <motion.h1 
+              <motion.h1
                 className="mt-5 text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300"
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -197,7 +191,7 @@ function DemoDefaultTheme() {
               >
                 {demoBundle.displayName}
               </motion.h1>
-              <motion.p 
+              <motion.p
                 className="text-indigo-400 text-sm font-medium"
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -206,7 +200,7 @@ function DemoDefaultTheme() {
                 @{demoBundle.bundleName}
               </motion.p>
               {demoBundle.bio && (
-                <motion.p 
+                <motion.p
                   className="mt-3 text-gray-400 text-sm max-w-xs"
                   initial={{ opacity: 0, y: 5 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -218,7 +212,7 @@ function DemoDefaultTheme() {
             </div>
 
             {/* Links with staggered animation */}
-            <motion.div 
+            <motion.div
               className="mt-8 space-y-3"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -260,7 +254,7 @@ function DemoDefaultTheme() {
             </motion.div>
 
             {/* Footer */}
-            <motion.div 
+            <motion.div
               className="mt-10 flex justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

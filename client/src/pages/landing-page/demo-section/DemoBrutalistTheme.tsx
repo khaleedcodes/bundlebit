@@ -10,20 +10,6 @@ const demoBundle = {
   bio: "Designer. Dreamer. Building beautiful things for the web.",
   bits: [
     {
-      title: "Portfolio Website",
-      url: "https://lena.design",
-      icon: "💼",
-      order: 1,
-      isPinned: true,
-    },
-    {
-      title: "Dribbble Shots",
-      url: "https://dribbble.com/lenaray",
-      icon: "🎨",
-      order: 2,
-      isPinned: false,
-    },
-    {
       title: "LinkedIn Profile",
       url: "https://linkedin.com/in/lenaray",
       icon: "🔗",
@@ -144,7 +130,7 @@ function DemoBrutalistTheme() {
     <div className="min-h-[75vh] flex items-center justify-center text-black font-mono">
       <div
         ref={containerRef}
-        className="w-full max-w-md mx-auto"
+        className="w-full max-w-[370px] mx-auto"
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -156,7 +142,7 @@ function DemoBrutalistTheme() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <div className="border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+          <div className="border-4 border-black bg-white p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] rounded-3xl">
             <motion.div
               className="flex flex-col items-center border-b-4 border-black pb-6 mb-6"
               initial={{ opacity: 0, y: 10 }}

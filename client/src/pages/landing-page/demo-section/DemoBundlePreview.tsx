@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import DemoBrutalistTheme from "./DemoBrutalistTheme";
+// import DemoBrutalistTheme from "./DemoBrutalistTheme";
 import DemoDefaultTheme from "./DemoDefaultTheme";
-import DemoMagazineTheme from "./DemoMagazineTheme";
-import DemoNeubrutalismTheme from "./DemoNeubrutalismTheme";
-import DemoPastelPopTheme from "./DemoPastelPopTheme";
-import DemoScrapbookTheme from "./DemoScrapbookTheme";
+// import DemoMagazineTheme from "./DemoMagazineTheme";
+// import DemoNeubrutalismTheme from "./DemoNeubrutalismTheme";
+// import DemoPastelPopTheme from "./DemoPastelPopTheme";
+// import DemoScrapbookTheme from "./DemoScrapbookTheme";
 
 const DemoBundlePreview = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,12 +16,12 @@ const DemoBundlePreview = () => {
 
   // Array of components to cycle through
   const components = [
-    <DemoBrutalistTheme key="brutalist" />,
+    // <DemoBrutalistTheme key="brutalist" />,
     <DemoDefaultTheme key="default" />,
-    <DemoMagazineTheme key="magazine" />,
-    <DemoNeubrutalismTheme key="neubrutalism" />,
-    <DemoPastelPopTheme key="pastelpop" />,
-    <DemoScrapbookTheme key="scrapbook" />,
+    // <DemoMagazineTheme key="magazine" />,
+    // <DemoNeubrutalismTheme key="neubrutalism" />,
+    // <DemoPastelPopTheme key="pastelpop" />,
+    // <DemoScrapbookTheme key="scrapbook" />,
   ];
 
   useEffect(() => {
@@ -84,7 +84,7 @@ const DemoBundlePreview = () => {
 
   return (
     <div
-      className="relative w-full h-full min-h-[600px] overflow-hidden perspective-1000"
+      className="relative w-full h-full min-h-[600px] perspective-1000"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
