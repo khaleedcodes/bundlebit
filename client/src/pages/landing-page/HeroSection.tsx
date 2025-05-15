@@ -126,14 +126,14 @@ function HeroSection() {
                 </div>
                 <motion.a
                   href={`/b/signup?username=${username}`}
-                  className="bg-third-blue text-first-text-color rounded-3xl flex items-center justify-center gap-2 relative overflow-hidden group px-6 py-3"
+                  className="bg-new-main-2 text-first-text-color rounded-3xl flex items-center justify-center gap-2 relative overflow-hidden group px-6 py-3"
                   whileHover={{
                     boxShadow:
                       "0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1)",
                   }}
                   transition={{ duration: 0.2 }}
                 >
-                  <span className="font-medium">Create your Bundle</span>
+                  <span className="font-medium ">Create your Bundle</span>
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
                     transition={{

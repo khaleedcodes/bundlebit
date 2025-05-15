@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
-import defaultAvatar from "../../../assets/images/default-avatar.jpeg";
+import defaultAvatar from "../../../assets/images/bundlebit-logo/bundlebit-rounded-square-white (7).png";
 
 // All data in a single file as requested
 const demoBundle = {
@@ -9,11 +9,10 @@ const demoBundle = {
   profilePicture: defaultAvatar,
   bio: "Simplify your link management",
   bits: [
-    { title: "Features", url: "/features" },
-    { title: "Pricing", url: "/pricing" },
-    { title: "Docs", url: "/docs" },
-    { title: "Blog", url: "/blog" },
-    { title: "Contact Us", url: "/contact" },
+    { title: "Features", url: "#features" },
+    { title: "Create your Bundle", url: "/b/signup" },
+    { title: "Featured Bundles", url: "#bundles" },
+    { title: "FAQs", url: "#faq" },
   ],
 };
 
@@ -222,8 +221,8 @@ function DemoDefaultTheme() {
                 <motion.a
                   key={index}
                   href={bit.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target="_self"
+                  // rel="noopener noreferrer"
                   className="group flex items-center gap-3 w-full px-6 py-4 rounded-xl bg-[#0f0f11]/80 border border-gray-800/50 hover:border-indigo-500/50 hover:bg-gradient-to-r hover:from-indigo-600/20 hover:to-purple-600/20 transition-all duration-300 text-white font-medium shadow-md hover:shadow-lg hover:shadow-indigo-500/10 transform hover:-translate-y-0.5"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}

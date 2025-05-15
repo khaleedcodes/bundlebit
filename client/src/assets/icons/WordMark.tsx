@@ -4,8 +4,8 @@ function WordMark() {
   return (
     <div className="flex items-center justify-center">
       <Link to="/" className="flex items-center">
-        <p className=" text-third-blue text-2xl font-bold">
-          Bundle<span className="text-second-blue">bit</span>
+        <p className=" text-new-main-1 text-2xl font-bold">
+          Bundle<span className="text-new-main-2">bit</span>
         </p>
       </Link>
     </div>

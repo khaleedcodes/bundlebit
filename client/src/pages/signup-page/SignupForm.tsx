@@ -73,8 +73,8 @@ function SignupForm() {
       >
         <h1 className="text-4xl font-bold text-center">
           Join{" "}
-          <span className="text-third-blue">
-            Bundle<span className="text-second-blue">bit</span>
+          <span className="text-new-main-1">
+            Bundle<span className="text-new-main-2">bit</span>
           </span>
           {paramUsername && ` as @${paramUsername}`}
         </h1>

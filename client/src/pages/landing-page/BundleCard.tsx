@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import defaultAvatar from "../../assets/images/default-avatar.jpeg";
 import { FaLink } from "react-icons/fa";
-import bundlebitLogo from "../../assets/images/logo.png";
+import bundlebitLogo from "../../assets/images/bundlebit-logo/bundlebit-transparent (6).png";
 
 function BundleCard(bundle: {
   bundleLink: string;

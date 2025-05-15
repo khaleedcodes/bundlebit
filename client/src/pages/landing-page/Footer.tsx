@@ -1,4 +1,4 @@
-import bundlebitLogo from "../../assets/images/logo.png";
+import bundlebitLogo from "../../assets/images/bundlebit-logo/bundlebit-transparent (6).png";
 import WordMark from "../../assets/icons/WordMark";
 
 function Footer() {

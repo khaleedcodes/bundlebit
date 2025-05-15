@@ -42,7 +42,7 @@ export default function FaqSection() {
     setActiveIndex(activeIndex === index ? null : index);
 
   return (
-    <section className="container mx-auto px-6 py-20">
+    <section className="container mx-auto px-6 py-20" id="faq">
       <div className="bg-gradient-to-r from-first-accent/20 to-third-blue/20 rounded-3xl p-8 md:p-12 relative overflow-hidden w-full">
         <RevealOnScroll direction="up">
           <div className="text-center mb-12 w-full">

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaBars } from "react-icons/fa";
 import Bounce from "./Bounce";
 import WordMark from "../../assets/icons/WordMark";
-import bundlebitLogo from "../../assets/images/logo.png";
+import bundlebitLogo from "../../assets/images/bundlebit-logo/bundlebit-transparent (6).png";
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -39,7 +39,7 @@ function Header() {
             </a>
             <motion.a
               href="/b/signup"
-              className=" bg-third-blue hover:bg-second-blue text-first-text-color font-medium rounded-lg px-5 py-2.5"
+              className=" bg-new-main-2 hover:bg-new-main-3 text-first-text-color font-medium rounded-lg px-5 py-2.5"
               whileHover={{
                 y: -2,
                 boxShadow:
@@ -79,7 +79,7 @@ function Header() {
                 </a>
                 <a
                   href="/b/signup"
-                  className="bg-third-blue text-first-text-color font-medium rounded-lg px-5 py-2.5 text-center"
+                  className="bg-new-main-2 text-first-text-color font-medium rounded-lg px-5 py-2.5 text-center"
                 >
                   Get started for free
                 </a>
