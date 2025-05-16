@@ -21,7 +21,7 @@ const BitManager = () => {
   const [newBit, setNewBit] = useState({ title: "", url: "" });
 
   async function getBits() {
-    const res = await fetch("http://localhost:5000/api/bundles/me/bits", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/bundles/me/bits`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -46,7 +46,7 @@ const BitManager = () => {
     }
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/bundles/me/bits", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/bundles/me/bits`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

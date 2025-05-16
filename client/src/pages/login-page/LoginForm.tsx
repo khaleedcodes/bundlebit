@@ -29,7 +29,7 @@ function LoginForm() {
     setLoading(true);
     try {
       const res = await fetch(
-        "http://localhost:5000/api/auth/bundlebit/login",
+        `${import.meta.env.VITE_API_URL}/api/auth/bundlebit/login`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

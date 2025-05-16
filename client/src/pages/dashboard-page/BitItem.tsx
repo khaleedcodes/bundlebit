@@ -12,7 +12,7 @@ function BitItem({ _id, title, url, getBits }: bitItemProps) {
 
   async function handleDelete(bitID: string) {
     const res = await fetch(
-      `http://localhost:5000/api/bundles/me/bits/${bitID}`,
+      `${import.meta.env.VITE_API_URL}/api/bundles/me/bits/${bitID}`,
       {
         method: "DELETE",
         headers: {

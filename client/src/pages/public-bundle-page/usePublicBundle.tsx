@@ -28,7 +28,7 @@ export const usePublicBundle = () => {
     const fetchBundle = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/bundles/${username}`
+          `${import.meta.env.VITE_API_URL}/api/bundles/${username}`
         );
         if (!res.ok) throw new Error("Bundle not found");
         const data: Bundle = await res.json();

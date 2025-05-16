@@ -11,7 +11,7 @@ function GoogleAuthButton() {
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       const { access_token } = tokenResponse;
-      const res = await fetch("http://localhost:5000/api/auth/google", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ access_token }),
