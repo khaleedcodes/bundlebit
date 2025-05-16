@@ -1,74 +1,76 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { PropagateLoader } from "react-spinners";
-import { Eye, EyeOff } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+// import React from "react";
+// import { useNavigate } from "react-router-dom";
+// import { PropagateLoader } from "react-spinners";
+// import { Eye, EyeOff } from "lucide-react";
 import GoogleAuthButton from "../../auth/GoogleAuthButton";
-import { useAuth } from "../../context/AuthContext";
+// import { useAuth } from "../../context/AuthContext";
 import { useSearchParams } from "react-router-dom";
 
 function SignupForm() {
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [email, setEmail] = useState("");
+  // const [message, setMessage] = useState("");
+  // const [loading, setLoading] = useState(false);
+  // const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [isPasswordShown, setIsPasswordShown] = useState(false);
-  const [isConfirmPasswordShown, setIsConfirmPasswordShown] = useState(false);
-  const [isPasswordFocus, setIsPasswordFocus] = useState(false);
-  const [isConfirmPasswordFocus, setIsConfirmPasswordFocus] = useState(false);
+  // const [password, setPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
+  // const [isPasswordShown, setIsPasswordShown] = useState(false);
+  // const [isConfirmPasswordShown, setIsConfirmPasswordShown] = useState(false);
+  // const [isPasswordFocus, setIsPasswordFocus] = useState(false);
+  // const [isConfirmPasswordFocus, setIsConfirmPasswordFocus] = useState(false);
 
-  const emailInputRef = useRef<HTMLInputElement>(null);
+  // const emailInputRef = useRef<HTMLInputElement>(null);
   const usernameInputRef = useRef<HTMLInputElement>(null);
-  const passwordInputRef = useRef<HTMLInputElement>(null);
-  const confirmPasswordInputRef = useRef<HTMLInputElement>(null);
+  // const passwordInputRef = useRef<HTMLInputElement>(null);
+  // const confirmPasswordInputRef = useRef<HTMLInputElement>(null);
 
-  const { login } = useAuth();
+  // const { login } = useAuth();
 
   const [searchParams] = useSearchParams();
   const paramUsername = searchParams.get("username");
 
   useEffect(() => {
-    emailInputRef.current?.focus();
+    // emailInputRef.current?.focus();
     if (paramUsername && usernameInputRef.current) setUsername(paramUsername);
   }, [paramUsername]);
 
-  const navigate = useNavigate();
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (!(password === confirmPassword)) {
-      setMessage("Passwords do not match");
-      return;
-    }
-    setLoading(true);
-    try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/auth/bundlebit/register`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, username, password }),
-        }
-      );
-      const data = await res.json();
-      if (res.ok) {
-        const { token, user } = data;
-        login(token, user);
-        navigate("/b/dashboard");
-      }
-      console.log(data.message);
-      setMessage(data.message);
-      setLoading(false);
-    } catch (err) {
-      console.error(err);
-      setMessage("Something went wrong. Please try again.");
-      setLoading(false);
-    }
-  }
+  // const navigate = useNavigate();
+  // async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  //   e.preventDefault();
+  //   if (!(password === confirmPassword)) {
+  //     setMessage("Passwords do not match");
+  //     return;
+  //   }
+  //   setLoading(true);
+  //   try {
+  //     const res = await fetch(
+  //       `${import.meta.env.VITE_API_URL}/api/auth/bundlebit/register`,
+  //       {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({ email, username, password }),
+  //       }
+  //     );
+  //     const data = await res.json();
+  //     if (res.ok) {
+  //       const { token, user } = data;
+  //       login(token, user);
+  //       navigate("/b/dashboard");
+  //     }
+  //     console.log(data.message);
+  //     setMessage(data.message);
+  //     setLoading(false);
+  //   } catch (err) {
+  //     console.error(err);
+  //     setMessage("Something went wrong. Please try again.");
+  //     setLoading(false);
+  //   }
+  // }
+  console.log(username);
   return (
     <>
       <form
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
         className="p-4 flex flex-wrap-reverse flex-col items-center gap-8 grow max-w-2xl"
       >
         <h1 className="text-4xl font-bold text-center">
@@ -79,7 +81,7 @@ function SignupForm() {
           {paramUsername && ` as @${paramUsername}`}
         </h1>
         {/*email Field*/}
-        <input
+        {/* <input
           ref={emailInputRef}
           className="bg-[#040F0F] w-full min-h-11 rounded-md pl-10 border-none focus:outline-none focus:ring-2 focus:ring-third-blue"
           type="email"
@@ -89,10 +91,10 @@ function SignupForm() {
           onChange={(e) => setEmail(e.target.value)}
           value={email}
           required
-        />
+        /> */}
 
         {/*username Field*/}
-        <input
+        {/* <input
           ref={usernameInputRef}
           className="bg-[#040F0F] w-full min-h-11 rounded-md border-none focus:outline-none focus:ring-2 focus:ring-third-blue pl-10"
           type="text"
@@ -102,10 +104,10 @@ function SignupForm() {
           onChange={(e) => setUsername(e.target.value)}
           value={username}
           required
-        />
+        /> */}
 
         {/*Password Field*/}
-        <div
+        {/* <div
           className={`flex items-center w-full rounded-md bg-[#040F0F] border-none ${
             isPasswordFocus ? " ring-2 ring-third-blue" : ""
           }`}
@@ -156,9 +158,9 @@ function SignupForm() {
               />
             )}
           </div>
-        </div>
+        </div> */}
         {/*Confirm Password Field*/}
-        <div
+        {/* <div
           className={`flex items-center w-full rounded-md bg-[#040F0F] border-none ${
             isConfirmPasswordFocus ? " ring-2 ring-third-blue" : ""
           }`}
@@ -209,11 +211,11 @@ function SignupForm() {
               />
             )}
           </div>
-        </div>
+        </div> */}
 
-        {message && <div className="text-third-blue">{message}</div>}
+        {/* {message && <div className="text-third-blue">{message}</div>} */}
         <div className="w-full flex flex-col gap-4">
-          <button
+          {/* <button
             disabled={loading}
             style={{
               cursor: loading ? "not-allowed" : "pointer",
@@ -229,7 +231,7 @@ function SignupForm() {
                 create account
               </p>
             )}
-          </button>
+          </button> */}
           <GoogleAuthButton />
         </div>
         <div className="flex gap-4">
