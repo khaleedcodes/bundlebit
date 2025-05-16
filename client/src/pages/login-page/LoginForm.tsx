@@ -1,60 +1,60 @@
-import { useState, useEffect, useRef } from "react";
+// import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { PropagateLoader } from "react-spinners";
-import { Eye, EyeOff } from "lucide-react";
+// import { useNavigate } from "react-router-dom";
+// import { PropagateLoader } from "react-spinners";
+// import { Eye, EyeOff } from "lucide-react";
 import GoogleAuthButton from "../../auth/GoogleAuthButton";
-import { useAuth } from "../../context/AuthContext";
+// import { useAuth } from "../../context/AuthContext";
 
 function LoginForm() {
-  const [identifier, setIdentifier] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [isPasswordShown, setIsPasswordShown] = useState(false);
-  const [isPasswordFocus, setIsPasswordFocus] = useState(false);
+  // const [identifier, setIdentifier] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [message, setMessage] = useState("");
+  // const [loading, setLoading] = useState(false);
+  // const [isPasswordShown, setIsPasswordShown] = useState(false);
+  // const [isPasswordFocus, setIsPasswordFocus] = useState(false);
 
-  const identifierInputRef = useRef<HTMLInputElement>(null);
-  const passwordInputRef = useRef<HTMLInputElement>(null);
+  // const identifierInputRef = useRef<HTMLInputElement>(null);
+  // const passwordInputRef = useRef<HTMLInputElement>(null);
 
-  const { login } = useAuth();
+  // const { login } = useAuth();
 
-  useEffect(() => {
-    identifierInputRef.current?.focus();
-  }, []);
-  const navigate = useNavigate();
+  // useEffect(() => {
+  //   identifierInputRef.current?.focus();
+  // }, []);
+  // const navigate = useNavigate();
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/auth/bundlebit/login`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ identifier, password }),
-        }
-      );
-      const data = await res.json();
-      if (res.ok) {
-        const { token, user } = data;
-        login(token, user);
-        navigate("/b/dashboard");
-      }
-      console.log(data.message);
-      setMessage(data.message);
-      setLoading(false);
-    } catch (error) {
-      console.error(error);
-      setMessage("Something went wrong. Please try again.");
-      setLoading(false);
-    }
-  }
+  // async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   try {
+  //     const res = await fetch(
+  //       `${import.meta.env.VITE_API_URL}/api/auth/bundlebit/login`,
+  //       {
+  //         method: "POST",
+  //         headers: { "Content-Type": "application/json" },
+  //         body: JSON.stringify({ identifier, password }),
+  //       }
+  //     );
+  //     const data = await res.json();
+  //     if (res.ok) {
+  //       const { token, user } = data;
+  //       login(token, user);
+  //       navigate("/b/dashboard");
+  //     }
+  //     console.log(data.message);
+  //     setMessage(data.message);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.error(error);
+  //     setMessage("Something went wrong. Please try again.");
+  //     setLoading(false);
+  //   }
+  // }
   return (
     <>
       <form
-        onSubmit={handleSubmit}
+        // onSubmit={handleSubmit}
         className="p-4 flex flex-wrap-reverse flex-col items-center gap-8 grow max-w-2xl"
       >
         <h1 className="text-4xl font-bold text-center">
@@ -64,7 +64,7 @@ function LoginForm() {
           </span>
         </h1>
         {/*Identifier Field*/}
-        <input
+        {/* <input
           ref={identifierInputRef}
           className="bg-[#040F0F] w-full min-h-11 rounded-md pl-10 border-none focus:outline-none focus:ring-2 focus:ring-third-blue"
           type="text"
@@ -73,10 +73,10 @@ function LoginForm() {
           onChange={(e) => setIdentifier(e.target.value)}
           value={identifier}
           required
-        />
+        /> */}
 
         {/*Password Field*/}
-        <div
+        {/* <div
           className={`flex items-center w-full rounded-md bg-[#040F0F] border-none ${
             isPasswordFocus ? " ring-2 ring-third-blue" : ""
           }`}
@@ -127,10 +127,10 @@ function LoginForm() {
               />
             )}
           </div>
-        </div>
-        {message && <div className="text-third-blue">{message}</div>}
+        </div> */}
+        {/* {message && <div className="text-third-blue">{message}</div>} */}
         <div className="w-full flex flex-col gap-4">
-          <button
+          {/* <button
             disabled={loading}
             type="submit"
             style={{
@@ -145,7 +145,7 @@ function LoginForm() {
             ) : (
               <p className="h-full flex items-center justify-center">Login</p>
             )}
-          </button>
+          </button> */}
           <GoogleAuthButton />
         </div>
         <div className="flex gap-4">
