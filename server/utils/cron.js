@@ -1,13 +1,16 @@
 import cron from "cron";
-// import https from "https";
 import http from "http";
+import https from "https";
+import dotenv from "dotenv";
 
-const URL = "http://localhost:5000/api/ping";
+dotenv.config();
+
+const URL = `${process.env.API_URL}/api/ping`;
 
 const job = new cron.CronJob("*/14 * * * *", function () {
-  // const job = new cron.CronJob("*/10 * * * * *", function () {
-  // https
-  http
+  const client = URL.startsWith("https") ? https : http;
+
+  client
     .get(URL, (res) => {
       if (res.statusCode === 200) {
         console.log("GET request sent successfully");
