@@ -29,7 +29,7 @@ const bundleCardsData = [
 ];
 
 function BundleCardList() {
-  const [username, setUSername] = useState("");
+  const [username, setUsername] = useState("");
 
   return (
     <>
@@ -115,7 +115,7 @@ function BundleCardList() {
                       placeholder="yourusername"
                       value={username}
                       onChange={(e) => {
-                        setUSername(e.target.value);
+                        setUsername(e.target.value);
                       }}
                       className="font-medium rounded-lg relative overflow-hidden py-2 bg-white border-none outline-none text-grey text-sm"
                     />

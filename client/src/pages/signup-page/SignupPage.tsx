@@ -8,7 +8,7 @@ function SignupPage() {
         <WordMark />
       </div>
       <div className="w-full h-full flex text-white">
-        <div className="w-full min-h-lvh flex items-center justify-center">
+        <div className="w-full min-h-lvh flex items-center justify-center flex-col">
           <SignupForm />
         </div>
         <div className="bg-second-blue w-[40%] flex items-center justify-center max-lg:hidden">
