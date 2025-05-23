@@ -3,7 +3,7 @@ import GoogleIcon from "../assets/icons/GoogleIcon";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
-function GoogleAuthButton() {
+function GoogleAuthButton({ username }: { username?: string }) {
   const navigate = useNavigate();
 
   const { login } = useAuth();
@@ -11,11 +11,14 @@ function GoogleAuthButton() {
   const googleLogin = useGoogleLogin({
     onSuccess: async (tokenResponse) => {
       const { access_token } = tokenResponse;
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/google`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ access_token }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/auth/google`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ access_token, username }),
+        }
+      );
       const data = await res.json();
       if (res.ok) {
         const { token, user } = data;

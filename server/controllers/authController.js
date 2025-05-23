@@ -1,10 +1,66 @@
 import bcrypt from "bcrypt";
 import User from "../models/userModel.js";
 import fetch from "node-fetch";
-import generateUniqueUsername from "../helpers/generateUniqueUsername.js";
+import {
+  generateUniqueUsername,
+  generateUsernameSuggestions,
+} from "../helpers/generateUniqueUsername.js";
 import sendAuthResponse from "../helpers/sendAuthResponse.js";
 
 import { createBundle } from "./bundleController.js";
+
+const checkUsernameExists = async (req, res) => {
+  try {
+    const { username } = req.query;
+
+    if (!username) {
+      return res
+        .status(400)
+        .json({ message: "Username query param is required" });
+    }
+
+    const isUsernameExists = await User.exists({ username });
+    if (isUsernameExists) {
+      const usernameSuggestions = await generateUsernameSuggestions(username);
+      return res.status(409).json({
+        isUsernameAvailable: false,
+        message: "Username already taken",
+        suggestions: usernameSuggestions,
+      });
+    }
+    res.status(200).json({
+      isUsernameAvailable: true,
+      message: "Username is available",
+    });
+  } catch (err) {
+    console.error("Register error:", err);
+    res.status(500).json({ message: "Server error, please try again later." });
+  }
+};
+
+const checkEmailExists = async (req, res) => {
+  try {
+    const { email } = req.query;
+
+    if (!email) {
+      return res.status(400).json({ message: "Email query param is required" });
+    }
+
+    const isEmailExists = await User.exists({ email });
+    if (isEmailExists) {
+      return res.status(409).json({
+        message: "Email Address already in use",
+        isEmailExists: true,
+      });
+    }
+    res
+      .status(200)
+      .json({ message: "Email Address not in use", isEmailExists: false });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error, please try again later." });
+  }
+};
 
 const registerUser = async (req, res) => {
   try {
@@ -98,7 +154,7 @@ const loginUser = async (req, res) => {
 
 const googleAuthentication = async (req, res) => {
   try {
-    const { access_token } = req.body;
+    const { access_token, username: reqUsername } = req.body;
     if (!access_token) {
       return res.status(400).json({ message: "Access token required" });
     }
@@ -126,7 +182,7 @@ const googleAuthentication = async (req, res) => {
     if (user) {
       sendAuthResponse(res, user, false);
     } else {
-      let username = email.split("@")[0];
+      const username = reqUsername || email.split("@")[0];
       const isUsernameExists = await User.exists({ username });
       if (isUsernameExists) {
         username = await generateUniqueUsername(username);
@@ -159,4 +215,11 @@ const verifyToken = async (req, res) => {
   sendAuthResponse(res, user, false);
 };
 
-export { registerUser, loginUser, googleAuthentication, verifyToken };
+export {
+  registerUser,
+  loginUser,
+  googleAuthentication,
+  verifyToken,
+  checkUsernameExists,
+  checkEmailExists,
+};

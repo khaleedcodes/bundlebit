@@ -29,9 +29,9 @@ const emailVerificationCodeSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const emailVerificationCode = new mongoose.model(
+const EmailVerificationCode = new mongoose.model(
   "EmailVerificationCode",
   emailVerificationCodeSchema
 );
 
-export default emailVerificationCode;
+export default EmailVerificationCode;
